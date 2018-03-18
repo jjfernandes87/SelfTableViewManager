@@ -3,26 +3,121 @@ import SelfTableViewManager
 
 class Tests: XCTestCase {
     
+    var systemUnderTest: TestViewController!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        systemUnderTest = storyboard.instantiateViewController(withIdentifier: "TestViewController") as!
+        TestViewController
+        _ = systemUnderTest.view
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        systemUnderTest = nil
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testCanInstantiateViewController() {
+        XCTAssertNotNil(systemUnderTest)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure() {
-            // Put the code you want to measure the time of here.
-        }
+    func testTableViewManagerNotNill() {
+        XCTAssertNotNil(systemUnderTest.tableView)
     }
     
+    func testShouldSetTableViewDataSource() {
+        XCTAssertNotNil(systemUnderTest.tableView.dataSource)
+    }
+    
+    func testShouldSetTableViewDelegate() {
+        XCTAssertNotNil(systemUnderTest.tableView.delegate)
+    }
+    
+    func testTableViewManagerMode() {
+        let table = systemUnderTest.tableView!
+        XCTAssertEqual(table.getCollectionViewMode(), TableViewManagerMode.single)
+    }
+    
+    func testTableViewManagerItemsCount() {
+        let table = systemUnderTest.tableView!
+        let items = [CellController(), CellController()]
+        table.rows = items
+        XCTAssertEqual(table.rows.count, items.count)
+    }
+    
+    func testTableViewManagerModeMultiple() {
+        let table = systemUnderTest.tableView!
+        let items = [SectionController(), CellController(), CellController()]
+        table.setSectionsAndRows = items
+        XCTAssertEqual(table.getCollectionViewMode(), TableViewManagerMode.multiple)
+    }
+    
+    func testSetSectionAndRowsWithoutSection() {
+        let table = systemUnderTest.tableView!
+        let items = [CellController(), CellController()]
+        table.setSectionsAndRows = items
+        XCTAssertEqual(table.getCollectionViewMode(), TableViewManagerMode.single)
+    }
+    
+    func testTableViewManagerSectionCount() {
+        let table = systemUnderTest.tableView!
+        let items = [SectionController(), CellController(), SectionController()]
+        table.setSectionsAndRows = items
+        XCTAssertEqual(table.sections.count, 2)
+    }
+    
+    func testIndexPathForCellTableSimpleMode() {
+        let table = systemUnderTest.tableView!
+        let items = [CellController(), CellController(), CellController()]
+        table.rows = items
+        let indexPath = table.indexPathForCellController(cell: items[1])
+        XCTAssertEqual(indexPath, IndexPath(item: 1, section: 0))
+    }
+    
+    func testIndexPathForCellTableMultipleMode() {
+        let table = systemUnderTest.tableView!
+        let cell = CellController()
+        let items = [SectionController(), CellController(), SectionController(), cell, CellController()]
+        table.setSectionsAndRows = items
+        let indexPath = table.indexPathForCellController(cell: cell)
+        XCTAssertEqual(indexPath, IndexPath(item: 0, section: 1))
+    }
+    
+    func testIndexPathForNilCellTableSimpleMode() {
+        let table = systemUnderTest.tableView!
+        let items = [CellController(), CellController(), CellController()]
+        table.rows = items
+        let indexPath = table.indexPathForCellController(cell: CellController())
+        XCTAssertNil(indexPath)
+    }
+    
+    func testIndexPathForNilCellControllerMultipleMode() {
+        let table = systemUnderTest.tableView!
+        let items = [SectionController(), CellController(), SectionController(), CellController(), CellController()]
+        table.setSectionsAndRows = items
+        let indexPath = table.indexPathForCellController(cell: CellController())
+        XCTAssertNil(indexPath)
+    }
+    
+    func testFindTableAtIndexPathForSimpleMode() {
+        let cell = CellController()
+        let index = IndexPath(item: 1, section: 0)
+        let table = systemUnderTest.tableView!
+        let items = [CellController(), cell, CellController()]
+        table.rows = items
+        let findCell = table.findControllerAtIndexPath(indexPath: index)
+        XCTAssertEqual(cell, findCell)
+    }
+    
+    func testFindControllerAtIndexPathForMultipleMode() {
+        let cell = CellController()
+        let index = IndexPath(item: 0, section: 1)
+        let table = systemUnderTest.tableView!
+        let items = [SectionController(), CellController(), SectionController(), cell, CellController()]
+        table.setSectionsAndRows = items
+        let findCell = table.findControllerAtIndexPath(indexPath: index)
+        XCTAssertEqual(cell, findCell)
+    }
+
 }

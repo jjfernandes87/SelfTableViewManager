@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import SelfTableViewManager
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var tableView: SelfTableViewManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.rows = [CustomCell(), CustomCell(), CustomCell()]
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
 }
 
+@objc(CustomCell)
+class CustomCell: CellController {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = loadDefaultCellForTable(tableView: tableView, atIndexPath: indexPath) as! CustomCellView
+        cell.textLabel?.text = "index: \(indexPath.row)"
+        
+        return cell
+    }
+}
+
+class CustomCellView: CellView {
+    
+}

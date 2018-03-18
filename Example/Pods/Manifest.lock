@@ -1,0 +1,16 @@
+PODS:
+  - SelfTableViewManager (0.1.0)
+
+DEPENDENCIES:
+  - SelfTableViewManager (from `../`)
+
+EXTERNAL SOURCES:
+  SelfTableViewManager:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SelfTableViewManager: 35adcbfcd92bb422987dbdb1f9f8541ac25fb19f
+
+PODFILE CHECKSUM: 64053d252c21fbf87ac7179abc85d0f3cdd04b51
+
+COCOAPODS: 1.4.0
