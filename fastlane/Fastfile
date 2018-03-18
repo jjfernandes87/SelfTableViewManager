@@ -12,15 +12,17 @@ def pod_name
   "SelfTableViewManager"
 end
 
-def proj {
-    plist: "./Example/SelfTableViewManager/Info.plist",
-    xcodeproj: "./Example/SelfTableViewManager.xcodeproj/",
+def proj 
+{
+    plist: "./Example/#{pod_name}/Info.plist",
+    xcodeproj: "./Example/#{pod_name}.xcodeproj/",
     repo_url: "https://github.com/jjfernandes87/SelfTableViewManager",
-    scheme: "SelfTableViewManager-pod",
+    scheme: "#{pod_name}-Example"
 }
 end
 
-def cocoapods {
+def cocoapods 
+{
     podspec: "./#{pod_name}.podspec",
     pod_name: "#{pod_name}"
 }
