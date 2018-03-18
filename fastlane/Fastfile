@@ -1,0 +1,27 @@
+import_from_git(url: 'git@github.com:jjfernandes87/Lanes.git', path: 'fastlane/Fastfile')
+
+fastlane_version "2.80.0"
+
+default_platform(:ios)
+
+def changelogFile 
+ "../CHANGELOG.md"
+end
+
+def pod_name
+  "SelfTableViewManager"
+end
+
+def proj {
+    plist: "./Example/SelfTableViewManager/Info.plist",
+    xcodeproj: "./Example/SelfTableViewManager.xcodeproj/",
+    repo_url: "https://github.com/jjfernandes87/SelfTableViewManager",
+    scheme: "SelfTableViewManager-pod",
+}
+end
+
+def cocoapods {
+    podspec: "./#{pod_name}.podspec",
+    pod_name: "#{pod_name}"
+}
+end
