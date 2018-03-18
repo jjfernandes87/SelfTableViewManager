@@ -1,7 +1,5 @@
 import_from_git(url: 'git@github.com:jjfernandes87/Lanes.git', path: 'fastlane/Fastfile')
 
-fastlane_version "2.80.0"
-
 default_platform(:ios)
 
 def changelogFile 
@@ -16,7 +14,7 @@ def proj
 {
     plist: "./Example/#{pod_name}/Info.plist",
     xcodeproj: "./Example/#{pod_name}.xcodeproj/",
-    repo_url: "https://github.com/jjfernandes87/SelfTableViewManager",
+    repo_url: "https://github.com/jjfernandes87/SelfTableViewManager.git",
     scheme: "#{pod_name}-Example"
 }
 end
