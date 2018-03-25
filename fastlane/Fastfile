@@ -30,8 +30,8 @@ end
 platform :ios do
   desc "Description of what the lane does"
   lane :test do
-  	scheme = proj[:scheme]
+    scheme = proj[:scheme]
   	workspace = proj[:workspace]
-	scan(clean: true, code_coverage: true, scheme: "#{scheme}", workspace: "#{workspace}")
+    scan(clean: true, code_coverage: true, scheme: "#{scheme}", workspace: "#{workspace}")
   end
 end

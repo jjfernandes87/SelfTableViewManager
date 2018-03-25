@@ -68,10 +68,6 @@ jobs:
           name: Git Config user.email
           command: git config --global user.email "julio.fernandes87@gmail.com"
 
-      - run:
-          name: Lint pod
-          command: bundle exec fastlane lint_pod
-
       - run: 
           name: Tag and pod
           command: bundle exec fastlane tag_and_pod
