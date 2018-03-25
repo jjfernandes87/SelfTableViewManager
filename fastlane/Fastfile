@@ -14,6 +14,7 @@ def proj
 {
     plist: "./Example/#{pod_name}/Info.plist",
     xcodeproj: "./Example/#{pod_name}.xcodeproj/",
+    workspace: "./Example/#{pod_name}.xcworkspace",
     repo_url: "https://github.com/jjfernandes87/SelfTableViewManager.git",
     scheme: "#{pod_name}-Example"
 }
@@ -24,4 +25,13 @@ def cocoapods
     podspec: "./#{pod_name}.podspec",
     pod_name: "#{pod_name}"
 }
+end
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :test do
+  	scheme = proj[:scheme]
+  	workspace = proj[:workspace]
+	scan(clean: true, code_coverage: true, scheme: "#{scheme}", workspace: "#{workspace}")
+  end
 end

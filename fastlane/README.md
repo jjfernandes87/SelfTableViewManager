@@ -50,11 +50,6 @@ Create a pull request from the current branch
 fastlane tag_the_release
 ```
 Tag the current repo status for App Store Release
-### install_private_repo
-```
-fastlane install_private_repo
-```
-
 ### publish_pod
 ```
 fastlane publish_pod
@@ -70,6 +65,15 @@ fastlane lint_pod
 fastlane tag_and_pod
 ```
 Create a new tag and publish the new pod you can pass : force
+
+----
+
+## iOS
+### ios test
+```
+fastlane ios test
+```
+Description of what the lane does
 
 ----
 
