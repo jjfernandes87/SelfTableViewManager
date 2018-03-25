@@ -10,9 +10,6 @@ jobs:
         version: 9.2
       enable: true
 
-    docker:
-      - image: circleci/ruby:2.4.1
-
     steps:
       - checkout
 
@@ -43,8 +40,10 @@ jobs:
     macos:
       xcode: "9.2.0"
 
-    docker:
-      - image: circleci/ruby:2.4.1
+    machine:
+      xcode:
+        version: 9.2
+      enable: true
       
     steps:
       - checkout
