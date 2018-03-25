@@ -1,8 +1,9 @@
-fastlane documentation
+Documentação Fastlane 
 ================
-# Installation
 
-Make sure you have the latest version of the Xcode command line tools installed:
+# Instalação
+
+Certifique-se de ter a versão mais recente das ferramentas de linha de comando do Xcode instaladas:
 
 ```
 xcode-select --install
@@ -12,68 +13,37 @@ Install _fastlane_ using
 ```
 [sudo] gem install fastlane -NV
 ```
-or alternatively using `brew cask install fastlane`
 
-# Available Actions
-### change_version_number
+# Processo de desenvolvimento
+
+A ideia é mostrar todo o processo de desenvolvimento ate a publicação da lib no cocoapods
+
+### 1) Crie uma nova branch a partir da master
+
+### 2) Faça a implementação do novo recurso e atualize seus seus testes unitários.
+
+### 3) Testando sua lib
 ```
-fastlane change_version_number
+fastlane test
 ```
-Change version number with prompt
-### patch
+
+### 4) Atualizando versão do projeto
+
+Quando você finalizou a implementação de um novo recurso, atualize a versão do projeto usando um dos nossos métodos pré-construídos do Fastlane:
+
 ```
 fastlane patch
-```
-Increment Patch version
-### minor
-```
 fastlane minor
-```
-Increment minor version
-### major
-```
 fastlane major
 ```
-Increment major version
-### bump
-```
-fastlane bump
-```
-bump build version and commit
-### pr
-```
-fastlane pr
-```
-Create a pull request from the current branch
-### tag_the_release
-```
-fastlane tag_the_release
-```
-Tag the current repo status for App Store Release
-### publish_pod
-```
-fastlane publish_pod
-```
 
-### lint_pod
-```
-fastlane lint_pod
-```
+### 5) Crie sua PR manualmente
 
-### tag_and_pod
+### 6) Apos realizar o merge, selecione o branch Master e publique sua lib
+
 ```
 fastlane tag_and_pod
 ```
-Create a new tag and publish the new pod you can pass : force
-
-----
-
-## iOS
-### ios test
-```
-fastlane ios test
-```
-Description of what the lane does
 
 ----
 
