@@ -1,4 +1,4 @@
-import_from_git(url: 'git@github.com:jjfernandes87/Lanes.git', path: 'fastlane/Fastfile')
+import_from_git(url: 'git@github.com:jjfernandes87/Lanes.git', path: 'fastlane/Fastfile-Public-Pod')
 
 default_platform(:ios)
 
@@ -25,13 +25,4 @@ def cocoapods
     podspec: "./#{pod_name}.podspec",
     pod_name: "#{pod_name}"
 }
-end
-
-platform :ios do
-  desc "Description of what the lane does"
-  lane :test do
-    scheme = proj[:scheme]
-  	workspace = proj[:workspace]
-    scan(clean: true, code_coverage: true, scheme: "#{scheme}", workspace: "#{workspace}")
-  end
 end
