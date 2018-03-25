@@ -1,3 +1,9 @@
+##  2.0.1
+* Merge pull request #2 from jjfernandes87/feature/fastlane-doc - Julio Fernandes Jr
+* Change version number: 2.0.1 - Julio Fernandes
+* removendo lane de teste e adicionando no Fastlane-Public-Pod - Julio Fernandes
+* removendo circleci - Julio Fernandes
+
 ##  2.0.0
 * removendo lint - Julio Fernandes
 * Merge pull request #1 from jjfernandes87/feature/add-fastlane - Julio Fernandes Jr
