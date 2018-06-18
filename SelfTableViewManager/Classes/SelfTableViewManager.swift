@@ -420,7 +420,7 @@ open class SectionController: NSObject {
         controllerSection = nil
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    open func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 32
     }
     
@@ -428,13 +428,13 @@ open class SectionController: NSObject {
         return ""
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
+    open func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
         return loadDefaultHeaderForTableView(tableView: tableView, viewForHeaderInSection: section)
     }
     
-    func customNibName() -> String { return NSStringFromClass(object_getClass(self)!) }
+    fileprivate func customNibName() -> String { return NSStringFromClass(object_getClass(self)!) }
     
-    func loadDefaultHeaderForTableView(tableView: UITableView, viewForHeaderInSection section: Int) -> SectionView {
+    open func loadDefaultHeaderForTableView(tableView: UITableView, viewForHeaderInSection section: Int) -> SectionView {
         let xibName = customNibName()
         _ = SelfTableViewManagerCache.shared().loadNib(path: xibName, owner: self)
         let sectionView = controllerSection!
