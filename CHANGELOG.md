@@ -1,3 +1,10 @@
+##  2.0.2
+* no message - Julio Junior
+* Change version number: 2.0.2 - Julio Junior
+* open methods - Julio Junior
+* Adicionando gitignore do Readme - Julio Fernandes
+* Atualizado Readme com processo de desenvolvimento - Julio Fernandes
+
 ##  2.0.1
 * Merge pull request #2 from jjfernandes87/feature/fastlane-doc - Julio Fernandes Jr
 * Change version number: 2.0.1 - Julio Fernandes
