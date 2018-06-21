@@ -112,6 +112,7 @@ open class SelfTableViewManager: UITableView {
         sections = _newSections
         
         mode = .multiple
+        self.reloadData()
     }
     
     /// Validamos se o array contains objeto do tipo SectionController
