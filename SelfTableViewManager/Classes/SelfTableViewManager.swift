@@ -295,7 +295,6 @@ extension SelfTableViewManager: UITableViewDataSource {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         if mode == .single {
-            print("numberOfSections: \(1)")
             return 1
         } else {
             return sections.count
@@ -304,7 +303,6 @@ extension SelfTableViewManager: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if mode == .single {
-            print("numberOfRowsInSection: \(rows.count)")
             return rows.count
         } else {
             if sections.count == 0 { return 0 }
