@@ -46,13 +46,13 @@ open class SelfTableViewManager: UITableView {
     }
     
     /// MARK: Input data
-    public var rows = [AnyObject]() {
-        willSet{
-            self.rows = newValue
-            self.mode = .single
-            self.reloadData()
-        }
+    public private(set) var rows = [AnyObject]()
+    public func setRows(_ rows: [AnyObject]) {
+        self.rows = rows
+        self.mode = .single
+        self.reloadData()
     }
+    
     
     public var setSectionsAndRows = [AnyObject]() {
         willSet { setSectionsAndRows(sequence: newValue) }
@@ -217,9 +217,9 @@ extension SelfTableViewManager {
         allRows.removeObjects(in: discardRows)
         
         if #available(iOS 11.0, *) {
-            performBatchUpdates(paths: paths, allRows: allRows, animation: animation)
+            performBatchUpdatesRemoveRows(paths: paths, allRows: allRows, animation: animation)
         } else {
-            performBeginUpdates(paths: paths, allRows: allRows, animation: animation)
+            performBeginUpdatesRemoveRows(paths: paths, allRows: allRows, animation: animation)
         }
     }
     
@@ -229,44 +229,32 @@ extension SelfTableViewManager {
     
     public func insertRows(rows: [AnyObject], at position: Int, animation: UITableViewRowAnimation) {
         
-        var paths = [IndexPath]()
-        var newRows = [AnyObject]()
-        
-        let allRows = NSMutableArray(array: rows)
-        
         for i in (0..<rows.count).reversed() {
             if let cell = rows[i] as? CellController {
-                allRows.insert(cell, at: position)
-                newRows.append(cell)
+                self.rows.insert(cell, at: position)
             }
         }
         
-        self.rows.removeAll()
-        self.rows = allRows as [AnyObject]
-        
-        for i in 0..<newRows.count {
-            if let cell = newRows[i] as? CellController, let path = indexPathForCellController(cell: cell) {
+        var paths = [IndexPath]()
+        for i in 0..<rows.count {
+            if let cell = rows[i] as? CellController, let path = indexPathForCellController(cell: cell) {
                 paths.append(path)
             }
         }
         
-        let originalOffset: CGPoint = self.contentOffset
-        
-        if(originalOffset.y != 0) {
-            reloadData()
-            setContentOffset(CGPoint(x: originalOffset.x, y: originalOffset.y), animated: false)
-        } else if animation != .none {
-            insertRows(at: paths, with: animation)
-        } else{
-            reloadData()
+        if #available(iOS 11.0, *) {
+            performBatchUpdatesInsertRows(paths: paths, animation: animation)
+        } else {
+            performBeginUpdatesInsertRows(paths: paths, animation: animation)
         }
+        
     }
     
 }
 
 extension SelfTableViewManager {
     @available(iOS 11.0, *)
-    internal func performBatchUpdates(paths: [IndexPath], allRows: NSArray, animation: UITableViewRowAnimation) {
+    internal func performBatchUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableViewRowAnimation) {
         performBatchUpdates({
             self.rows.removeAll()
             self.rows = allRows as [AnyObject]
@@ -274,11 +262,25 @@ extension SelfTableViewManager {
         })
     }
     
-    internal func performBeginUpdates(paths: [IndexPath], allRows: NSArray, animation: UITableViewRowAnimation) {
+    internal func performBeginUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableViewRowAnimation) {
         beginUpdates()
         self.rows.removeAll()
         self.rows = allRows as [AnyObject]
         self.deleteRows(at: paths, with: animation)
+        endUpdates()
+    }
+}
+
+// MARK: - Insert Rows
+extension SelfTableViewManager {
+    @available(iOS 11.0, *)
+    internal func performBatchUpdatesInsertRows(paths: [IndexPath], animation: UITableViewRowAnimation) {
+        performBatchUpdates({ self.insertRows(at: paths, with: animation) })
+    }
+    
+    internal func performBeginUpdatesInsertRows(paths: [IndexPath], animation: UITableViewRowAnimation) {
+        beginUpdates()
+        self.insertRows(at: paths, with: animation)
         endUpdates()
     }
 }
@@ -292,11 +294,17 @@ extension SelfTableViewManager: UITableViewDataSource {
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return mode == .single ? 1 : sections.count
+        if mode == .single {
+            print("numberOfSections: \(1)")
+            return 1
+        } else {
+            return sections.count
+        }
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if mode == .single {
+            print("numberOfRowsInSection: \(rows.count)")
             return rows.count
         } else {
             if sections.count == 0 { return 0 }

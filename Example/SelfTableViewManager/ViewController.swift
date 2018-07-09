@@ -13,9 +13,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: SelfTableViewManager!
     
+    var firstTime = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rows = [CustomCell(), CustomCell(), CustomCell()]
+        tableView.setRows([CustomCell(), CustomCell(), CustomCell()])
+    }
+    
+    @IBAction func addCell() {
+        if firstTime {
+            firstTime = false
+            tableView.insertRowsOnTop(rows: [CustomCell(), CustomCell(), CustomCell()], animation: .automatic)
+        } else {
+            tableView.insertRows(rows: [CustomCell(), CustomCell(), CustomCell()], at: 1, animation: .automatic)
+        }
     }
     
 }

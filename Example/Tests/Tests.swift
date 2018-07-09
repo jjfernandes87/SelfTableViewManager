@@ -42,7 +42,7 @@ class Tests: XCTestCase {
     func testTableViewManagerItemsCount() {
         let table = systemUnderTest.tableView!
         let items = [CellController(), CellController()]
-        table.rows = items
+        table.setRows(items)
         XCTAssertEqual(table.rows.count, items.count)
     }
     
@@ -70,7 +70,7 @@ class Tests: XCTestCase {
     func testIndexPathForCellTableSimpleMode() {
         let table = systemUnderTest.tableView!
         let items = [CellController(), CellController(), CellController()]
-        table.rows = items
+        table.setRows(items)
         let indexPath = table.indexPathForCellController(cell: items[1])
         XCTAssertEqual(indexPath, IndexPath(item: 1, section: 0))
     }
@@ -87,7 +87,7 @@ class Tests: XCTestCase {
     func testIndexPathForNilCellTableSimpleMode() {
         let table = systemUnderTest.tableView!
         let items = [CellController(), CellController(), CellController()]
-        table.rows = items
+        table.setRows(items)
         let indexPath = table.indexPathForCellController(cell: CellController())
         XCTAssertNil(indexPath)
     }
@@ -105,7 +105,7 @@ class Tests: XCTestCase {
         let index = IndexPath(item: 1, section: 0)
         let table = systemUnderTest.tableView!
         let items = [CellController(), cell, CellController()]
-        table.rows = items
+        table.setRows(items)
         let findCell = table.findControllerAtIndexPath(indexPath: index)
         XCTAssertEqual(cell, findCell)
     }
