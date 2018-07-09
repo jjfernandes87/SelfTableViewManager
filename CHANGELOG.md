@@ -1,3 +1,8 @@
+##  2.1.1
+* alterando versao - Julio Junior
+* Change version number: 3.0.0 - Julio Junior
+* removendo print - Julio Junior
+
 ##  2.1.0
 * Change version number: 2.1.0 - Julio Junior
 * corrigindo problema na inserção de itens na tableView - Julio Junior
