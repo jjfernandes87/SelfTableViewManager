@@ -1,3 +1,7 @@
+##  2.1.0
+* Change version number: 2.1.0 - Julio Junior
+* corrigindo problema na inserção de itens na tableView - Julio Junior
+
 ##  2.0.3
 * Change version number: 2.0.3 - Julio Junior
 * corrigindo problema de atualização de tableView no metodo sectionandrows - Julio Junior
