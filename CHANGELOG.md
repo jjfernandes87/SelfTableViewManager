@@ -1,3 +1,9 @@
+##  2.2.0
+* Change version number: 2.2.0 - Julio Junior
+* alteração na linha de import do fastlane - Julio Junior
+* adicionando delegates para scrollview - Julio Junior
+* adicionando suporte para Xib - Julio Junior
+
 ##  2.1.1
 * alterando versao - Julio Junior
 * Change version number: 3.0.0 - Julio Junior
