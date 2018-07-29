@@ -289,7 +289,7 @@ extension SelfTableViewManager {
 extension SelfTableViewManager: UITableViewDataSource {
     
     override open func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell? {
-        let cell = super.dequeueReusableCell(withIdentifier: identifier) as! CellView
+        let cell = super.dequeueReusableCell(withIdentifier: identifier) as? CellView
         return cell
     }
     

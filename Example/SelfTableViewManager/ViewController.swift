@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.setRows([CustomCell(), CustomCell(), CustomCell()])
+        tableView.setRows([CustomCell(), CustomCell(), CustomCell(), XibCell()])
     }
     
     @IBAction func addCell() {

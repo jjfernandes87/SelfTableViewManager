@@ -17,6 +17,8 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		8631AA05205E835D00117992 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631AA04205E835D00117992 /* TestViewController.swift */; };
 		8631AA06205E835D00117992 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631AA04205E835D00117992 /* TestViewController.swift */; };
+		86C0B2D8210E6F2600476103 /* XibCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0B2D6210E6F2600476103 /* XibCell.swift */; };
+		86C0B2D9210E6F2600476103 /* XibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0B2D7210E6F2600476103 /* XibCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		6A81A7773BD3A0FD54E044D0 /* Pods-SelfTableViewManager_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfTableViewManager_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SelfTableViewManager_Example/Pods-SelfTableViewManager_Example.release.xcconfig"; sourceTree = "<group>"; };
 		738C4B16F166230FE2D46C1C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		8631AA04205E835D00117992 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		86C0B2D6210E6F2600476103 /* XibCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibCell.swift; sourceTree = "<group>"; };
+		86C0B2D7210E6F2600476103 /* XibCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XibCell.xib; sourceTree = "<group>"; };
 		891F25236C2CCE60F7E51A76 /* Pods-SelfTableViewManager_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfTableViewManager_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SelfTableViewManager_Tests/Pods-SelfTableViewManager_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		99F34E942ABCF89CA678757F /* Pods_SelfTableViewManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfTableViewManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB4799675DBADD1E3B487CA /* Pods_SelfTableViewManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfTableViewManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +127,8 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				86C0B2D6210E6F2600476103 /* XibCell.swift */,
+				86C0B2D7210E6F2600476103 /* XibCell.xib */,
 			);
 			name = "Example for SelfTableViewManager";
 			path = SelfTableViewManager;
@@ -255,6 +261,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				86C0B2D9210E6F2600476103 /* XibCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +387,7 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8631AA05205E835D00117992 /* TestViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				86C0B2D8210E6F2600476103 /* XibCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
