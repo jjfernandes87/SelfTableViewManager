@@ -10,6 +10,9 @@ import UIKit
 @objc public protocol TableViewManagerDelegate: NSObjectProtocol {
     @objc optional func tableViewManager(table: SelfTableViewManager, didSelectRow row: CellController, atSection section: SectionController?)
     @objc optional func tableViewManager(table: SelfTableViewManager, didSelectRowAtIndexPath indexPath: IndexPath)
+    @objc optional func tableViewManager(table: SelfTableViewManager, scrollView: UIScrollView, didChangeScrollOffset newOffset: CGPoint)
+    @objc optional func tableViewManager(table: SelfTableViewManager, scrollView: UIScrollView, didDraggedToPosition newOffset: CGPoint)
+    @objc optional func tableViewManager(table: SelfTableViewManager, willBeginDragging offset: CGPoint)
 }
 
 public enum TableViewManagerMode: Int {
@@ -335,17 +338,53 @@ extension SelfTableViewManager: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return }
-        guard let delegate = managerDelegate else { return }
+        controller.tableView(tableView: tableView, didSelectThisCellAtIndexPath: indexPath)
         
-        if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:didSelectRow:atSection:))) {
-            delegate.tableViewManager!(table: self, didSelectRow: controller, atSection: nil)
+        if let delegate = managerDelegate {
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:didSelectRow:atSection:))) {
+                delegate.tableViewManager!(table: self, didSelectRow: controller, atSection: nil)
+            }
+        
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:didSelectRowAtIndexPath:))) {
+                delegate.tableViewManager!(table: self, didSelectRowAtIndexPath: indexPath)
+            }
         }
-        
-        if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:didSelectRowAtIndexPath:))) {
-            delegate.tableViewManager!(table: self, didSelectRowAtIndexPath: indexPath)
+    }
+    
+}
+
+// MARK: - ScrollView manipulation
+extension SelfTableViewManager {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let delegate = managerDelegate {
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:scrollView:didChangeScrollOffset:))) {
+                delegate.tableViewManager!(table: self, scrollView: scrollView, didChangeScrollOffset: self.contentOffset)
+            }
         }
-        
-        return controller.tableView(tableView: tableView, didSelectThisCellAtIndexPath: indexPath)
+    }
+    
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if let delegate = managerDelegate, decelerate {
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:scrollView:didDraggedToPosition:))) {
+                delegate.tableViewManager!(table: self, scrollView: scrollView, didDraggedToPosition: scrollView.contentOffset)
+            }
+        }
+    }
+    
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if let delegate = managerDelegate {
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:willBeginDragging:))) {
+                delegate.tableViewManager!(table: self, willBeginDragging: scrollView.contentOffset)
+            }
+        }
+    }
+    
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if let delegate = managerDelegate {
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:scrollView:didDraggedToPosition:))) {
+                delegate.tableViewManager!(table: self, scrollView: scrollView, didDraggedToPosition: scrollView.contentOffset)
+            }
+        }
     }
 }
 
@@ -393,7 +432,7 @@ open class CellController: NSObject {
         return cell!
     }
     
-    open func tableView(tableView: UITableView, didSelectThisCellAtIndexPath indexPath: IndexPath) {}
+    @objc open func tableView(tableView: UITableView, didSelectThisCellAtIndexPath indexPath: IndexPath) {}
     
     fileprivate func reuseIdentifier() -> String { return NSStringFromClass(object_getClass(self)!) }
     

@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.setRows([CustomCell(), CustomCell(), CustomCell(), XibCell()])
+        tableView.managerProtocol = self
+        tableView.setRows([CustomCell(), CustomCell(), CustomCell(), XibCell(), CustomCell(), CustomCell(), CustomCell(), XibCell(), CustomCell(), CustomCell(), CustomCell(), XibCell(), CustomCell(), CustomCell(), CustomCell(), XibCell(), CustomCell(), CustomCell(), CustomCell(), XibCell(), CustomCell(), CustomCell(), CustomCell(), XibCell()])
     }
     
     @IBAction func addCell() {
@@ -29,6 +30,12 @@ class ViewController: UIViewController {
         }
     }
     
+}
+
+extension ViewController: TableViewManagerDelegate {
+    func tableViewManager(table: SelfTableViewManager, scrollView: UIScrollView, didChangeScrollOffset newOffset: CGPoint) {
+        print(newOffset)
+    }
 }
 
 @objc(CustomCell)

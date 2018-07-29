@@ -17,6 +17,10 @@ class XibCell: CellController {
         cell.title.text = "cell xp \(indexPath.row)"
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectThisCellAtIndexPath indexPath: IndexPath) {
+        print("didSelectThisCellAtIndexPath")
+    }
 }
 
 class XibCellView: CellView {
