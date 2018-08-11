@@ -14,6 +14,7 @@
 		2F5466134016BC0F052D2DE6EB386EB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		310FD7C89F54F8D9714A55880559AA09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		5D32D07AE2697D5BC28CAE299CD30A6E /* SelfTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE9473B3DB3A7F8FBFCF8D600F89329 /* SelfTableViewManager.swift */; };
+		862F48FA211F6B51003F9A0B /* SelfTableViewManagerStatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862F48F9211F6B51003F9A0B /* SelfTableViewManagerStatic.swift */; };
 		8631AA09205E844D00117992 /* SelfTableViewManagerCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631AA07205E844200117992 /* SelfTableViewManagerCache.swift */; };
 		D319D2350F436A7C6E210AB7AB9ED8E1 /* Pods-SelfTableViewManager_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B492009CDD75E9576153F0B6260BDA97 /* Pods-SelfTableViewManager_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB4EB941055D5D497953260A09023F2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -45,6 +46,7 @@
 		6EF2EF99188AB7DF8109EE242F1167D9 /* Pods_SelfTableViewManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfTableViewManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA741D799F83D20A51B992AC6EEFE57 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		82FE4EA80144284A3CD2CC9007ECFADF /* Pods-SelfTableViewManager_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SelfTableViewManager_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		862F48F9211F6B51003F9A0B /* SelfTableViewManagerStatic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelfTableViewManagerStatic.swift; path = SelfTableViewManager/Classes/SelfTableViewManagerStatic.swift; sourceTree = "<group>"; };
 		8631AA07205E844200117992 /* SelfTableViewManagerCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelfTableViewManagerCache.swift; path = SelfTableViewManager/Classes/SelfTableViewManagerCache.swift; sourceTree = "<group>"; };
 		87CD7C0BE62AFA9DC7F7917448242E2E /* Pods-SelfTableViewManager_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SelfTableViewManager_Example-frameworks.sh"; sourceTree = "<group>"; };
 		8F6E3FEE3F1688FDFD45C37E0C109E76 /* Pods-SelfTableViewManager_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SelfTableViewManager_Example-umbrella.h"; sourceTree = "<group>"; };
@@ -190,8 +192,9 @@
 		B0D0A3FB6F4C8F20230D654EA2571C65 /* SelfTableViewManager */ = {
 			isa = PBXGroup;
 			children = (
-				8631AA07205E844200117992 /* SelfTableViewManagerCache.swift */,
 				EBE9473B3DB3A7F8FBFCF8D600F89329 /* SelfTableViewManager.swift */,
+				862F48F9211F6B51003F9A0B /* SelfTableViewManagerStatic.swift */,
+				8631AA07205E844200117992 /* SelfTableViewManagerCache.swift */,
 				35BE09551A5B889C08BB75756BAE49AE /* Pod */,
 				4B140E0077BCCFE98976DACC417FF782 /* Support Files */,
 			);
@@ -315,7 +318,7 @@
 				LastUpgradeCheck = 0920;
 				TargetAttributes = {
 					EA1A1B418FC08B740911D4FB42594EB3 = {
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -361,6 +364,7 @@
 			files = (
 				5D32D07AE2697D5BC28CAE299CD30A6E /* SelfTableViewManager.swift in Sources */,
 				8631AA09205E844D00117992 /* SelfTableViewManagerCache.swift in Sources */,
+				862F48FA211F6B51003F9A0B /* SelfTableViewManagerStatic.swift in Sources */,
 				1C85016AB3C94B56598DC14C81196C5D /* SelfTableViewManager-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

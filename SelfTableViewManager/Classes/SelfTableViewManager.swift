@@ -20,6 +20,11 @@ public enum TableViewManagerMode: Int {
     case multiple
 }
 
+public enum TableViewManagerType: Int {
+    case staticDimension
+    case automaticDimension
+}
+
 open class SelfTableViewManager: UITableView {
     
     deinit {
@@ -29,10 +34,22 @@ open class SelfTableViewManager: UITableView {
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        rowHeight = UITableViewAutomaticDimension
-        estimatedRowHeight = 44
+        self.bootstrap()
         delegate = self
         dataSource = self
+    }
+    
+    /// Define
+    func bootstrap() {
+        if self.tableViewManagerType() == .automaticDimension {
+            estimatedRowHeight = 44
+            rowHeight = UITableViewAutomaticDimension
+        }
+    }
+    
+    /// define type
+    func tableViewManagerType() -> TableViewManagerType {
+        return .automaticDimension
     }
     
     /// MARK: TableViewManagerDelegate protocol
@@ -319,6 +336,7 @@ extension SelfTableViewManager: UITableViewDataSource {
         controller.tableview = tableView
         return controller.tableView(tableView: tableView, cellForRowAtIndexPath: indexPath)
     }
+    
 }
 
 extension SelfTableViewManager: UITableViewDelegate {
@@ -430,6 +448,10 @@ open class CellController: NSObject {
         cell!.controller = self
         
         return cell!
+    }
+    
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
     }
     
     @objc open func tableView(tableView: UITableView, didSelectThisCellAtIndexPath indexPath: IndexPath) {}

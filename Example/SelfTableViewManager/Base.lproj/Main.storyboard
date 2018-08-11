@@ -57,6 +57,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="onM-s5-Q75">
+                        <barButtonItem key="leftBarButtonItem" title="Static table" id="eFc-ae-gIx">
+                            <connections>
+                                <segue destination="1Jl-bv-K0I" kind="show" id="rZy-Ob-kaP"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="51B-D6-O7r">
                             <connections>
                                 <action selector="addCell" destination="vXZ-lx-hvc" id="4qf-bb-ANQ"/>
@@ -70,6 +75,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="866" y="34"/>
+        </scene>
+        <!--Manager Protocol-->
+        <scene sceneID="PqL-cq-maq">
+            <objects>
+                <viewController id="1Jl-bv-K0I" customClass="StaticTableViewController" customModule="SelfTableViewManager_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EKq-5L-TvA"/>
+                        <viewControllerLayoutGuide type="bottom" id="tus-py-HPe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TUv-kP-DX7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uxS-UK-Zf7" customClass="SelfTableViewManagerStatic" customModule="SelfTableViewManager">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StaticCustomCell" rowHeight="303" id="pa8-9L-6ms" customClass="StaticCustomCellView" customModule="SelfTableViewManager_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="303"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pa8-9L-6ms" id="LOu-nx-caQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="302.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLP-D4-Ii9">
+                                                    <rect key="frame" x="45" y="40" width="285" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-RU-FIh">
+                                                    <rect key="frame" x="45" y="109" width="285" height="153"/>
+                                                    <string key="text">A administração e a gestão do Fundo são realizadas por profissionais capacitados (gestores), sendo o Fundo de Investimento regido por um regulamento. Esta alternativa de investimento apresenta diversas vantagens, em relação a investir individualmente:</string>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="eez-tQ-8ug">
+                                                    <rect key="frame" x="306" y="42.5" width="24" height="24"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eez-tQ-8ug" firstAttribute="trailing" secondItem="cLP-D4-Ii9" secondAttribute="trailing" id="7if-80-bhY"/>
+                                                <constraint firstItem="cLP-D4-Ii9" firstAttribute="leading" secondItem="LOu-nx-caQ" secondAttribute="leading" constant="45" id="I6j-ZN-pMs"/>
+                                                <constraint firstItem="jjb-RU-FIh" firstAttribute="top" secondItem="cLP-D4-Ii9" secondAttribute="bottom" constant="40" id="Qhv-vE-5TV"/>
+                                                <constraint firstItem="eez-tQ-8ug" firstAttribute="centerY" secondItem="cLP-D4-Ii9" secondAttribute="centerY" id="Qq4-ti-QrG"/>
+                                                <constraint firstAttribute="trailing" secondItem="cLP-D4-Ii9" secondAttribute="trailing" constant="45" id="WfJ-v0-vqN"/>
+                                                <constraint firstItem="cLP-D4-Ii9" firstAttribute="top" secondItem="LOu-nx-caQ" secondAttribute="top" constant="40" id="dTO-Tp-sD0"/>
+                                                <constraint firstItem="jjb-RU-FIh" firstAttribute="trailing" secondItem="cLP-D4-Ii9" secondAttribute="trailing" id="kmZ-6L-inw"/>
+                                                <constraint firstItem="jjb-RU-FIh" firstAttribute="leading" secondItem="cLP-D4-Ii9" secondAttribute="leading" id="wj9-6W-J4v"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detail" destination="jjb-RU-FIh" id="4eJ-je-PNL"/>
+                                            <outlet property="icon" destination="eez-tQ-8ug" id="LGa-co-ODU"/>
+                                            <outlet property="label" destination="cLP-D4-Ii9" id="HD9-hl-686"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="managerProtocol" destination="1Jl-bv-K0I" id="hEc-wR-8de"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uxS-UK-Zf7" firstAttribute="top" secondItem="EKq-5L-TvA" secondAttribute="bottom" id="4f6-Yv-Cbn"/>
+                            <constraint firstAttribute="trailing" secondItem="uxS-UK-Zf7" secondAttribute="trailing" id="dAf-j4-7Wd"/>
+                            <constraint firstItem="uxS-UK-Zf7" firstAttribute="leading" secondItem="TUv-kP-DX7" secondAttribute="leading" id="eA4-1V-8ze"/>
+                            <constraint firstItem="tus-py-HPe" firstAttribute="top" secondItem="uxS-UK-Zf7" secondAttribute="bottom" id="oaO-oB-YWA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="uxS-UK-Zf7" id="VVT-ph-ld6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wyT-KH-cUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864.79999999999995" y="794.75262368815595"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="pwS-v3-4MR">
@@ -148,4 +232,7 @@
             <point key="canvasLocation" x="101.59999999999999" y="33.733133433283363"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dropdown" width="24" height="24"/>
+    </resources>
 </document>
