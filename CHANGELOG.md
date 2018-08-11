@@ -1,3 +1,7 @@
+##  2.3.0
+* Change version number: 2.3.0 - Julio Junior
+* - Adicionando classe para tableview com altura fixa - Aplicação de exemplo - Julio Junior
+
 ##  2.2.0
 * Change version number: 2.2.0 - Julio Junior
 * alteração na linha de import do fastlane - Julio Junior
