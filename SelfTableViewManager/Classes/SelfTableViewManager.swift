@@ -13,6 +13,7 @@ import UIKit
     @objc optional func tableViewManager(table: SelfTableViewManager, scrollView: UIScrollView, didChangeScrollOffset newOffset: CGPoint)
     @objc optional func tableViewManager(table: SelfTableViewManager, scrollView: UIScrollView, didDraggedToPosition newOffset: CGPoint)
     @objc optional func tableViewManager(table: SelfTableViewManager, willBeginDragging offset: CGPoint)
+    @objc optional func tableViewManager(tableView: SelfTableViewManager, willDisplay cell: CellController)
 }
 
 public enum TableViewManagerMode: Int {
@@ -339,6 +340,7 @@ extension SelfTableViewManager: UITableViewDataSource {
     
 }
 
+// MARK: - UITableViewDelegate
 extension SelfTableViewManager: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -365,6 +367,15 @@ extension SelfTableViewManager: UITableViewDelegate {
         
             if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:didSelectRowAtIndexPath:))) {
                 delegate.tableViewManager!(table: self, didSelectRowAtIndexPath: indexPath)
+            }
+        }
+    }
+    
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let delegate = managerDelegate {
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(tableView:willDisplay:))) {
+                guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return }
+                delegate.tableViewManager!(tableView: self, willDisplay: controller)
             }
         }
     }
