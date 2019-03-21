@@ -1,3 +1,7 @@
+##  3.0.0
+* Change version number: 3.0.0 - Julio Junior
+* Adding func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) - Julio Junior
+
 ##  2.3.0
 * Change version number: 2.3.0 - Julio Junior
 * - Adicionando classe para tableview com altura fixa - Aplicação de exemplo - Julio Junior
