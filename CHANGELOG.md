@@ -1,3 +1,6 @@
+##  3.1.0
+* Adicionando opção de criar EditActions e criando novo delegate para indexPath no WillDisplay - Julio Fernandes
+
 ##  3.0.0
 * Change version number: 3.0.0 - Julio Junior
 * Adding func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) - Julio Junior
