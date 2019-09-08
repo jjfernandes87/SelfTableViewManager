@@ -8,8 +8,7 @@ class Tests: XCTestCase {
     override func setUp() {
         super.setUp()
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        systemUnderTest = storyboard.instantiateViewController(withIdentifier: "TestViewController") as!
-        TestViewController
+        systemUnderTest = storyboard.instantiateViewController(withIdentifier: "TestViewController") as? TestViewController
         _ = systemUnderTest.view
     }
     

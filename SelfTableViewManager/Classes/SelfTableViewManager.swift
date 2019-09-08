@@ -14,6 +14,7 @@ import UIKit
     @objc optional func tableViewManager(table: SelfTableViewManager, scrollView: UIScrollView, didDraggedToPosition newOffset: CGPoint)
     @objc optional func tableViewManager(table: SelfTableViewManager, willBeginDragging offset: CGPoint)
     @objc optional func tableViewManager(tableView: SelfTableViewManager, willDisplay cell: CellController)
+    @objc optional func tableViewManager(tableView: SelfTableViewManager, willDisplay cell: CellController, indexPath: IndexPath)
 }
 
 public enum TableViewManagerMode: Int {
@@ -73,7 +74,6 @@ open class SelfTableViewManager: UITableView {
         self.mode = .single
         self.reloadData()
     }
-    
     
     public var setSectionsAndRows = [AnyObject]() {
         willSet { setSectionsAndRows(sequence: newValue) }
@@ -337,7 +337,18 @@ extension SelfTableViewManager: UITableViewDataSource {
         controller.tableview = tableView
         return controller.tableView(tableView: tableView, cellForRowAtIndexPath: indexPath)
     }
-    
+
+    public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return nil }
+        controller.tableview = tableView
+        return controller.tableView(tableView: tableView, editActionsForRowAt: indexPath)
+    }
+
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return false }
+        controller.tableview = tableView
+        return controller.tableView(tableView: tableView, canEditRowAt: indexPath)
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -376,6 +387,10 @@ extension SelfTableViewManager: UITableViewDelegate {
             if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(tableView:willDisplay:))) {
                 guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return }
                 delegate.tableViewManager!(tableView: self, willDisplay: controller)
+            }
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(tableView:willDisplay:indexPath:))) {
+                guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return }
+                delegate.tableViewManager?(tableView: self, willDisplay: controller, indexPath: indexPath)
             }
         }
     }
@@ -460,14 +475,26 @@ open class CellController: NSObject {
         
         return cell!
     }
+
+    open func tableView(tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        return nil
+    }
+
+    open func tableView(tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
     
-    @objc open func tableView(tableView: UITableView, didSelectThisCellAtIndexPath indexPath: IndexPath) {}
+    @objc open func tableView(tableView: UITableView, didSelectThisCellAtIndexPath indexPath: IndexPath) {
+        //EMPTY
+    }
     
-    fileprivate func reuseIdentifier() -> String { return NSStringFromClass(object_getClass(self)!) }
+    fileprivate func reuseIdentifier() -> String {
+        return NSStringFromClass(object_getClass(self)!)
+    }
     
 }
 

@@ -46,6 +46,17 @@ class CustomCell: CellController {
         
         return cell
     }
+
+    override func tableView(tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let share = UITableViewRowAction(style: .normal, title: "share") { (action, indexPath) in
+            print(action)
+        }
+        return [share]
+    }
+
+    override func tableView(tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 }
 
 class CustomCellView: CellView {
