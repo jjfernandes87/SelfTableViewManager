@@ -1,4 +1,9 @@
 ##  3.2.0
+* Publish pod version: 3.2.0 [ci skip] - Julio Fernandes
+* upgrade de versão - Julio Fernandes
+* Adicionando novos delegates para controle de scrollview e adicionando opção de Tableview com cache de cell - Julio Fernandes
+
+##  3.2.0
 * upgrade de versão - Julio Fernandes
 * Adicionando novos delegates para controle de scrollview e adicionando opção de Tableview com cache de cell - Julio Fernandes
 
