@@ -119,4 +119,67 @@ class Tests: XCTestCase {
         XCTAssertEqual(cell, findCell)
     }
 
+    func testScrollViewWillBeginDragging() {
+        let mock = ScrollTableViewMock()
+        let table = systemUnderTest.tableView!
+        let items = [CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController()
+        ]
+        table.setRows(items)
+        table.managerProtocol = mock
+        table.scrollViewWillBeginDragging(table)
+        XCTAssertEqual(mock.scrollViewWillBeginDragging, true)
+    }
+
+    func testScrollViewDidEndDecelerating() {
+        let mock = ScrollTableViewMock()
+        let table = systemUnderTest.tableView!
+        let items = [CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController()
+        ]
+        table.setRows(items)
+        table.managerProtocol = mock
+        table.scrollViewDidEndDecelerating(table)
+        XCTAssertEqual(mock.scrollViewDidEndDecelerating, true)
+    }
+
+}
+
+/// Micks
+class ScrollTableViewMock: NSObject, TableViewManagerDelegate {
+
+    var scrollViewWillBeginDragging = false
+    var scrollViewDidEndDecelerating = false
+
+    func tableViewManager(tableView: SelfTableViewManager, scrollViewWillBeginDragging scrollView: UIScrollView) {
+        self.scrollViewWillBeginDragging = true
+    }
+
+    func tableViewManager(tableView: SelfTableViewManager, scrollViewDidEndDecelerating scrollView: UIScrollView) {
+        self.scrollViewDidEndDecelerating = true
+    }
 }

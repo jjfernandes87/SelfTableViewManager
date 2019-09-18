@@ -8,13 +8,21 @@
 import UIKit
 
 @objc public protocol TableViewManagerDelegate: NSObjectProtocol {
+    @objc optional func tableViewManager(tableView: SelfTableViewManager, willDisplay cell: CellController)
+    @objc optional func tableViewManager(tableView: SelfTableViewManager, willDisplay cell: CellController, indexPath: IndexPath)
     @objc optional func tableViewManager(table: SelfTableViewManager, didSelectRow row: CellController, atSection section: SectionController?)
     @objc optional func tableViewManager(table: SelfTableViewManager, didSelectRowAtIndexPath indexPath: IndexPath)
+
+    //old scroll manipulation
     @objc optional func tableViewManager(table: SelfTableViewManager, scrollView: UIScrollView, didChangeScrollOffset newOffset: CGPoint)
     @objc optional func tableViewManager(table: SelfTableViewManager, scrollView: UIScrollView, didDraggedToPosition newOffset: CGPoint)
     @objc optional func tableViewManager(table: SelfTableViewManager, willBeginDragging offset: CGPoint)
-    @objc optional func tableViewManager(tableView: SelfTableViewManager, willDisplay cell: CellController)
-    @objc optional func tableViewManager(tableView: SelfTableViewManager, willDisplay cell: CellController, indexPath: IndexPath)
+
+    //scroll manipulation
+    @objc optional func tableViewManager(tableView: SelfTableViewManager, scrollViewDidScroll scrollView: UIScrollView)
+    @objc optional func tableViewManager(tableView: SelfTableViewManager, scrollViewDidEndDragging scrollView: UIScrollView, willDecelerate decelerate: Bool)
+    @objc optional func tableViewManager(tableView: SelfTableViewManager, scrollViewWillBeginDragging scrollView: UIScrollView)
+    @objc optional func tableViewManager(tableView: SelfTableViewManager, scrollViewDidEndDecelerating scrollView: UIScrollView)
 }
 
 public enum TableViewManagerMode: Int {
@@ -404,6 +412,9 @@ extension SelfTableViewManager {
             if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:scrollView:didChangeScrollOffset:))) {
                 delegate.tableViewManager!(table: self, scrollView: scrollView, didChangeScrollOffset: self.contentOffset)
             }
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(tableView:scrollViewDidScroll:))) {
+                delegate.tableViewManager?(tableView: self, scrollViewDidScroll: scrollView)
+            }
         }
     }
     
@@ -411,6 +422,9 @@ extension SelfTableViewManager {
         if let delegate = managerDelegate, decelerate {
             if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:scrollView:didDraggedToPosition:))) {
                 delegate.tableViewManager!(table: self, scrollView: scrollView, didDraggedToPosition: scrollView.contentOffset)
+            }
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(tableView:scrollViewDidEndDragging:willDecelerate:))) {
+                delegate.tableViewManager?(tableView: self, scrollViewDidEndDragging: scrollView, willDecelerate: decelerate)
             }
         }
     }
@@ -420,6 +434,9 @@ extension SelfTableViewManager {
             if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:willBeginDragging:))) {
                 delegate.tableViewManager!(table: self, willBeginDragging: scrollView.contentOffset)
             }
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(tableView:scrollViewWillBeginDragging:))) {
+                delegate.tableViewManager?(tableView: self, scrollViewWillBeginDragging: scrollView)
+            }
         }
     }
     
@@ -427,6 +444,9 @@ extension SelfTableViewManager {
         if let delegate = managerDelegate {
             if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:scrollView:didDraggedToPosition:))) {
                 delegate.tableViewManager!(table: self, scrollView: scrollView, didDraggedToPosition: scrollView.contentOffset)
+            }
+            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(tableView:scrollViewDidEndDecelerating:))) {
+                delegate.tableViewManager?(tableView: self, scrollViewDidEndDecelerating: scrollView)
             }
         }
     }
@@ -439,16 +459,24 @@ open class CellController: NSObject {
     @IBOutlet public weak var controllerCell: CellView!
     
     fileprivate var tableview: UITableView?
-    fileprivate var tag: Int?
     fileprivate var identifier: String?
-    fileprivate var currentObject: AnyObject?
-    
+
+    fileprivate var persistentCell: Bool = false
+    fileprivate var cachedCell: CellView?
+    var tag: Int?
+
     deinit{
         tableview = nil
         controllerCell = nil
+        cachedCell = nil
     }
-    
+
     public override init() {
+        super.init()
+    }
+
+    public init(persistentCell: Bool = false) {
+        self.persistentCell = persistentCell
         super.init()
     }
     
@@ -469,6 +497,11 @@ open class CellController: NSObject {
             _ = SelfTableViewManagerCache.shared().loadNib(path: reuseIdentifier(), owner: self)
             cell = controllerCell;
             controllerCell = nil
+        }
+
+        if persistentCell {
+            cell?.beingPersisted = true
+            cachedCell = cell
         }
         
         cell!.controller = self
@@ -501,7 +534,8 @@ open class CellController: NSObject {
 open class CellView: UITableViewCell {
     
     var loadedKey: String?
-    
+    var beingPersisted: Bool = false
+
     @IBOutlet weak var controller: CellController!
     @IBOutlet weak var backgroundCell: UIView!
     
