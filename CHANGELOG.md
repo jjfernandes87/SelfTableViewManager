@@ -1,3 +1,6 @@
+##  3.2.1
+* Removing decelerate - Julio Fernandes
+
 ##  3.2.0
 * Publish pod version: 3.2.0 [ci skip] - Julio Fernandes
 * upgrade de versão - Julio Fernandes
