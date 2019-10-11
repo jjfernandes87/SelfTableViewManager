@@ -419,8 +419,8 @@ extension SelfTableViewManager {
     }
     
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if let delegate = managerDelegate, decelerate {
-            if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:scrollView:didDraggedToPosition:))) {
+        if let delegate = managerDelegate {
+            if decelerate && delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(table:scrollView:didDraggedToPosition:))) {
                 delegate.tableViewManager!(table: self, scrollView: scrollView, didDraggedToPosition: scrollView.contentOffset)
             }
             if delegate.responds(to: #selector(TableViewManagerDelegate.tableViewManager(tableView:scrollViewDidEndDragging:willDecelerate:))) {
