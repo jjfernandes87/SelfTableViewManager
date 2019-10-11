@@ -1,5 +1,10 @@
 ##  3.2.1
 * Publish pod version: 3.2.1 [ci skip] - Julio Fernandes
+* Publish pod version: 3.2.1 [ci skip] - Julio Fernandes
+* Removing decelerate - Julio Fernandes
+
+##  3.2.1
+* Publish pod version: 3.2.1 [ci skip] - Julio Fernandes
 * Removing decelerate - Julio Fernandes
 
 ##  3.2.1
