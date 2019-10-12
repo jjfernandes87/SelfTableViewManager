@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Protocolos de manipulação
 @objc public protocol TableViewManagerDelegate: NSObjectProtocol {
     @objc optional func tableViewManager(tableView: SelfTableViewManager, willDisplay cell: CellController)
     @objc optional func tableViewManager(tableView: SelfTableViewManager, willDisplay cell: CellController, indexPath: IndexPath)
@@ -25,11 +26,13 @@ import UIKit
     @objc optional func tableViewManager(tableView: SelfTableViewManager, scrollViewDidEndDecelerating scrollView: UIScrollView)
 }
 
+/// TableViewManagerMode
 public enum TableViewManagerMode: Int {
     case single
     case multiple
 }
 
+/// TableViewManagerType
 public enum TableViewManagerType: Int {
     case staticDimension
     case automaticDimension
@@ -228,6 +231,10 @@ open class SelfTableViewManager: UITableView {
 // MARK: - Rows manipulation
 extension SelfTableViewManager {
 
+    /// Remove cells
+    /// - Parameter position: start index
+    /// - Parameter count: number of cells
+    /// - Parameter animation: animation type
     public func removeAt(position: Int, rowsCount count: Int, animation: UITableViewRowAnimation) {
         
         var paths = [IndexPath]()
@@ -251,11 +258,18 @@ extension SelfTableViewManager {
             performBeginUpdatesRemoveRows(paths: paths, allRows: allRows, animation: animation)
         }
     }
-    
+
+    /// Insert cells on top
+    /// - Parameter rows: cells list
+    /// - Parameter animation: animation type
     public func insertRowsOnTop(rows: [AnyObject], animation: UITableViewRowAnimation) {
         insertRows(rows: rows, at: 0, animation: animation)
     }
-    
+
+    /// Insert cells
+    /// - Parameter rows: cells list
+    /// - Parameter position: start index
+    /// - Parameter animation: animation type
     public func insertRows(rows: [AnyObject], at position: Int, animation: UITableViewRowAnimation) {
         
         for i in (0..<rows.count).reversed() {
@@ -281,6 +295,7 @@ extension SelfTableViewManager {
     
 }
 
+// MARK: - content manipulation
 extension SelfTableViewManager {
     @available(iOS 11.0, *)
     internal func performBatchUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableViewRowAnimation) {
@@ -300,7 +315,7 @@ extension SelfTableViewManager {
     }
 }
 
-// MARK: - Insert Rows
+// MARK: - content manipulation for insert cells
 extension SelfTableViewManager {
     @available(iOS 11.0, *)
     internal func performBatchUpdatesInsertRows(paths: [IndexPath], animation: UITableViewRowAnimation) {
@@ -314,7 +329,7 @@ extension SelfTableViewManager {
     }
 }
 
-// MARK: - UITableViewDataSource Methods
+// MARK: - UITableViewDataSource methods
 extension SelfTableViewManager: UITableViewDataSource {
     
     override open func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell? {
@@ -359,7 +374,7 @@ extension SelfTableViewManager: UITableViewDataSource {
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate methods
 extension SelfTableViewManager: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

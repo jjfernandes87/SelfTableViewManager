@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SelfTableViewManager  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="SelfTableViewManager  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          SelfTableViewManager Docs
+        </a>
+         (12% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/jjfernandes87/SelfTableViewManager.git">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fgithub%2Ecom%2Fjjfernandes87%2Fdocsets%2FSelfTableViewManager%2Exml">
+            <img class="header-icon" src="img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">SelfTableViewManager Reference</a>
+      <img class="carat" src="img/carat.png" />
+      SelfTableViewManager  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CellController.html">CellController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CellView.html">CellView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SectionController.html">SectionController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SectionView.html">SectionView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SelfTableViewManager.html">SelfTableViewManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SelfTableViewManagerCache.html">SelfTableViewManagerCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SelfTableViewManagerStatic.html">SelfTableViewManagerStatic</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/TableViewManagerMode.html">TableViewManagerMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/TableViewManagerType.html">TableViewManagerType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/TableViewManagerDelegate.html">TableViewManagerDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h1 id='selftableviewmanager' class='heading'>SelfTableViewManager</h1>
+
+<p>Um jeito simples de criar e manipular uma UITableView.</p>
+
+<p><a href="https://travis-ci.org/jjfernandes87/SelfTableViewManager"><img src="http://img.shields.io/travis/jjfernandes87/SelfTableViewManager.svg?style=flat" alt="CI Status"></a>
+<a href="http://cocoapods.org/pods/SelfTableViewManager"><img src="https://img.shields.io/cocoapods/v/SelfTableViewManager.svg?style=flat" alt="Version"></a>
+<a href="http://cocoapods.org/pods/SelfTableViewManager"><img src="https://img.shields.io/cocoapods/l/SelfTableViewManager.svg?style=flat" alt="License"></a>
+<a href="http://cocoapods.org/pods/SelfTableViewManager"><img src="https://img.shields.io/cocoapods/p/SelfTableViewManager.svg?style=flat" alt="Platform"></a></p>
+<h2 id='features' class='heading'>Features</h2>
+
+<ul>
+<li>[x] Carregue uma coleção de UITableViewCell passando apenas um array</li>
+<li>[x] Carregue UITableViewCell com xib, sem necessidade de implementar Register(nib)</li>
+<li>[x] Remova UITableViewCell com apenas uma linha</li>
+</ul>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 9.3+</li>
+<li>Xcode 9.0+</li>
+<li>Swift 4.0+</li>
+</ul>
+<h2 id='communication' class='heading'>Communication</h2>
+
+<ul>
+<li>Se você <strong>encontrou um bug</strong>, abra uma issue.</li>
+<li>Se você <strong>tem uma nova feature</strong>, abra uma issue.</li>
+<li>Se você <strong>quer contribuir</strong>, envie uma pull request.</li>
+</ul>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>Para rodar o projeto de exemplo, clone o repositório, e rode o comando <code>pod install</code> no diretório Example primeiro.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>SelfTableViewManager esta disponível através <a href="http://cocoapods.org">CocoaPods</a>. Para instalar, basta adicionar a linha abaixo no seu Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'SelfTableViewManager'</span>
+</code></pre>
+
+<p>Criando uma CellController e CellView. Veja que é necessário você adicionar @objc para sua classe que extende CellController, precisamos disso porque nossa CollectionManager usa o nome da classe como cellIdentifier (você deve configurar sua UITableViewCell com o mesmo nome da sua CellController no seu Xib ou Storyboard)</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SelfTableViewManager</span>
+
+<span class="kd">@objc(CustomCell)</span>
+<span class="kd">class</span> <span class="kt">CustomCell</span><span class="p">:</span> <span class="kt">CellController</span> <span class="p">{</span>
+<span class="o">...</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">CustomCellView</span><span class="p">:</span> <span class="kt">CellView</span> <span class="p">{</span>
+<span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Depois de criada sua classe CellController está na hora de implementar os métodos necessários para seu funcionamento.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SelfTableViewManager</span>
+
+<span class="kd">@objc(CustomCell)</span>
+<span class="kd">class</span> <span class="kt">CustomCell</span><span class="p">:</span> <span class="kt">CellController</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">cellForRowAtIndexPath</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UITableViewCell</span> <span class="p">{</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Na sua classe CellView vamos expor nossos IBOutlets.</p>
+<pre class="highlight swift"><code>
+<span class="kd">class</span> <span class="kt">CustomCellView</span><span class="p">:</span> <span class="kt">CellView</span> <span class="p">{</span>
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="kd">var</span> <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Agora falta pouco!
+Precisamos popular nossa Interface com as cell&rsquo;s que acabamos de construir.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">CollectionManager</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">SelfTableViewManager</span><span class="o">!</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+        <span class="n">tableView</span><span class="o">.</span><span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CustomCell</span><span class="p">(),</span><span class="kt">CustomCell</span><span class="p">(),</span><span class="kt">CustomCell</span><span class="p">(),</span><span class="kt">CustomCell</span><span class="p">(),</span><span class="kt">CustomCell</span><span class="p">(),</span><span class="kt">CustomCell</span><span class="p">()]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Pronto!</p>
+<h2 id='author' class='heading'>Author</h2>
+
+<p>jjfernandes87, <a href="mailto:julio.fernandes87@gmail.com">julio.fernandes87@gmail.com</a></p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>SelfTableViewManager is available under the MIT license. See the LICENSE file for more info.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2019 <a class="link" href="https://github.com/jjfernandes87" target="_blank" rel="external">Julio Fernandes Junior</a>. All rights reserved. (Last updated: 2019-10-12)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

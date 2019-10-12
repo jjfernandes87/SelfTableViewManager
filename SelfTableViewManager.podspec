@@ -9,7 +9,7 @@ Esqueça todos os metodos obrigatórios para criar e manipular uma TableView, ca
 
   s.homepage         = 'https://github.com/jjfernandes87/SelfTableViewManager'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'jjfernandes87' => 'jfjunior@zapcorp.com.br' }
+  s.author           = { 'jjfernandes87' => 'julio.fernandes87@gmail.com' }
   s.source           = { :git => 'https://github.com/jjfernandes87/SelfTableViewManager.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.3'

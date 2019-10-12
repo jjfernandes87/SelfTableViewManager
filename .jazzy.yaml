@@ -1,0 +1,8 @@
+author: Julio Fernandes Junior
+author_url: https://github.com/jjfernandes87
+github_url: https://github.com/jjfernandes87/SelfTableViewManager.git
+root_url: https://github.com/jjfernandes87/SelfTableViewManager.git
+module: SelfTableViewManager
+output: docs
+theme: fullwidth
+xcodebuild_arguments: [-workspace, './Example/SelfTableViewManager.xcworkspace', -scheme, 'SelfTableViewManager']
