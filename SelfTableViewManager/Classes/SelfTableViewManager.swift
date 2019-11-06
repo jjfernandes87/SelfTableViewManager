@@ -372,6 +372,20 @@ extension SelfTableViewManager: UITableViewDataSource {
         controller.tableview = tableView
         return controller.tableView(tableView: tableView, canEditRowAt: indexPath)
     }
+
+    @available(iOS 11.0, *)
+    public func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return nil }
+        controller.tableview = tableView
+        return controller.tableView(tableView: tableView, leadingSwipeActionsConfigurationForRowAt: indexPath)
+    }
+
+    @available(iOS 11.0, *)
+    public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return nil }
+        controller.tableview = tableView
+        return controller.tableView(tableView: tableView, trailingSwipeActionsConfigurationForRowAt: indexPath)
+    }
 }
 
 // MARK: - UITableViewDelegate methods
@@ -534,6 +548,16 @@ open class CellController: NSObject {
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
+    }
+
+    @available(iOS 11.0, *)
+    open func tableView(tableView: UITableView, trailingSwipeActionsConfigurationForRowAt: IndexPath) -> UISwipeActionsConfiguration? {
+        return nil
+    }
+
+    @available(iOS 11.0, *)
+    open func tableView(tableView: UITableView, leadingSwipeActionsConfigurationForRowAt: IndexPath) -> UISwipeActionsConfiguration? {
+        return nil
     }
     
     @objc open func tableView(tableView: UITableView, didSelectThisCellAtIndexPath indexPath: IndexPath) {
