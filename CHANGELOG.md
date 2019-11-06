@@ -1,3 +1,12 @@
+##  4.0.0
+* Change version number: 4.0.0 - Julio Fernandes
+* Merge pull request #4 from sousaleonardo/master - Julio Fernandes Jr
+* Adiciona metodos para configurar trailing e leading actions na tableView - Leonardo Sousa Mendes
+* adding Swift Package manager - Julio Fernandes
+* Adicionando Swift Package manager - Julio Fernandes
+* adding docs - Julio Fernandes
+* Fixed changelog - Julio Fernandes
+
 ##  3.2.1
 * Removing decelerate - Julio Fernandes
 
