@@ -507,6 +507,11 @@ open class CellController: NSObject {
         super.init()
     }
 
+    public init(bundle: String? = nil) {
+        self.bundleIdentifier = bundle
+        super.init()
+    }
+
     public init(persistentCell: Bool = false) {
         self.persistentCell = persistentCell
         super.init()
@@ -602,6 +607,11 @@ open class SectionController: NSObject {
         rows = nil
         tableView = nil
         controllerSection = nil
+    }
+
+    public init(bundle: String? = nil) {
+        self.bundleIdentifier = bundle
+        super.init()
     }
     
     open func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
