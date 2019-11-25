@@ -1,3 +1,7 @@
+##  4.1.0
+* Change version number: 4.1.0 - Julio Fernandes
+* Adding support for multiples bundles when loading nib - Julio Fernandes
+
 ##  4.0.0
 * Change version number: 4.0.0 - Julio Fernandes
 * Merge pull request #4 from sousaleonardo/master - Julio Fernandes Jr
