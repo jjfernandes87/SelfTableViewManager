@@ -38,6 +38,7 @@ public enum TableViewManagerType: Int {
     case automaticDimension
 }
 
+/// SelfTableViewManager class
 open class SelfTableViewManager: UITableView {
     
     deinit {
@@ -52,15 +53,15 @@ open class SelfTableViewManager: UITableView {
         dataSource = self
     }
     
-    /// Define
+    /// bootstrap framework with automatic dimension
     func bootstrap() {
         if self.tableViewManagerType() == .automaticDimension {
             estimatedRowHeight = 44
-            rowHeight = UITableViewAutomaticDimension
+            rowHeight = UITableView.automaticDimension
         }
     }
     
-    /// define type
+    /// define tableview type
     func tableViewManagerType() -> TableViewManagerType {
         return .automaticDimension
     }
@@ -71,8 +72,8 @@ open class SelfTableViewManager: UITableView {
         get { return managerDelegate }
         set { managerDelegate = newValue as? TableViewManagerDelegate }
     }
-    
-    /// MARK: Mode
+
+    /// TableViewManagerMode
     private var mode: TableViewManagerMode = .single
     public func getCollectionViewMode() -> TableViewManagerMode {
         return mode
@@ -147,18 +148,18 @@ open class SelfTableViewManager: UITableView {
         self.reloadData()
     }
     
-    /// Validamos se o array contains objeto do tipo SectionController
+    /// Validate if array contains obj type of SectionController
     ///
-    /// - Parameter sequence: lista de collectionView
-    /// - Returns: returna se achou ou não a sessão
+    /// - Parameter sequence: rows
+    /// - Returns: true or false
     private func hasSection(sequence: [AnyObject]) -> Bool {
         return sequence.contains(where: { $0 is SectionController })
     }
     
-    /// Busca a cell controller e retorna o indexPath
+    /// Search for cellController and return its index
     ///
-    /// - Parameter cell: cell controller
-    /// - Returns: return o indexPath
+    /// - Parameter cell: cellController
+    /// - Returns: indexPath
     private func searchCellControllerForMultipleMode(cell: CellController) -> IndexPath? {
         for (i, aSection) in sections.enumerated() {
             if let section = aSection as? SectionController, let rows = section.rows {
@@ -174,10 +175,10 @@ open class SelfTableViewManager: UITableView {
         return nil
     }
     
-    /// Busca a cell controller e retorna o indexPath
+    /// Search for cellController and return its index
     ///
-    /// - Parameter cell: cell controller
-    /// - Returns: return o indexPath
+    /// - Parameter cell: cellController
+    /// - Returns: indexPath
     private func searchCellControllerForSingleMode(cell: CellController) -> IndexPath? {
         for (index, aCell) in rows.enumerated() {
             if let aCell = aCell as? CellController {
@@ -188,11 +189,21 @@ open class SelfTableViewManager: UITableView {
         }
         return nil
     }
+
+    /// Search for cellController and return its index
+    ///
+    /// - Parameter cell: cell controller
+    /// - Returns: indexPath
+    public func indexPathForCellController(cell: CellController) -> IndexPath? {
+        return mode == .multiple ?
+            searchCellControllerForMultipleMode(cell: cell) :
+            searchCellControllerForSingleMode(cell: cell)
+    }
     
-    /// Retorna a cellController
+    /// Access the index and return to cellController
     ///
     /// - Parameter indexPath: indexPath
-    /// - Returns: return a cell controller
+    /// - Returns: cellController
     public func findControllerAtIndexPath(indexPath: IndexPath) -> CellController? {
         var controller: CellController?
         if mode == .single {
@@ -208,19 +219,9 @@ open class SelfTableViewManager: UITableView {
         return controller
     }
     
-    /// Retorna o indexPath de uma cell controller
+    /// Change cellController for selected state
     ///
-    /// - Parameter cell: cell controller
-    /// - Returns: indexPath
-    public func indexPathForCellController(cell: CellController) -> IndexPath? {
-        return mode == .multiple ?
-            searchCellControllerForMultipleMode(cell: cell) :
-            searchCellControllerForSingleMode(cell: cell)
-    }
-    
-    /// Marca a cell como selecionada
-    ///
-    /// - Parameter cell: cell controller
+    /// - Parameter cell: cellController
     public func markCellAsSelected(cell: CellController) {
         if let path = indexPathForCellController(cell: cell) as IndexPath? {
             selectRow(at: path, animated: false, scrollPosition: .none)
@@ -231,11 +232,11 @@ open class SelfTableViewManager: UITableView {
 // MARK: - Rows manipulation
 extension SelfTableViewManager {
 
-    /// Remove cells
+    /// Remove rows
     /// - Parameter position: start index
     /// - Parameter count: number of cells
     /// - Parameter animation: animation type
-    public func removeAt(position: Int, rowsCount count: Int, animation: UITableViewRowAnimation) {
+    public func removeAt(position: Int, rowsCount count: Int, animation: UITableView.RowAnimation) {
         
         var paths = [IndexPath]()
         var discardRows = [AnyObject]()
@@ -262,7 +263,7 @@ extension SelfTableViewManager {
     /// Insert cells on top
     /// - Parameter rows: cells list
     /// - Parameter animation: animation type
-    public func insertRowsOnTop(rows: [AnyObject], animation: UITableViewRowAnimation) {
+    public func insertRowsOnTop(rows: [AnyObject], animation: UITableView.RowAnimation) {
         insertRows(rows: rows, at: 0, animation: animation)
     }
 
@@ -270,7 +271,7 @@ extension SelfTableViewManager {
     /// - Parameter rows: cells list
     /// - Parameter position: start index
     /// - Parameter animation: animation type
-    public func insertRows(rows: [AnyObject], at position: Int, animation: UITableViewRowAnimation) {
+    public func insertRows(rows: [AnyObject], at position: Int, animation: UITableView.RowAnimation) {
         
         for i in (0..<rows.count).reversed() {
             if let cell = rows[i] as? CellController {
@@ -298,7 +299,7 @@ extension SelfTableViewManager {
 // MARK: - content manipulation
 extension SelfTableViewManager {
     @available(iOS 11.0, *)
-    internal func performBatchUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableViewRowAnimation) {
+    internal func performBatchUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableView.RowAnimation) {
         performBatchUpdates({
             self.rows.removeAll()
             self.rows = allRows as [AnyObject]
@@ -306,7 +307,7 @@ extension SelfTableViewManager {
         })
     }
     
-    internal func performBeginUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableViewRowAnimation) {
+    internal func performBeginUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableView.RowAnimation) {
         beginUpdates()
         self.rows.removeAll()
         self.rows = allRows as [AnyObject]
@@ -318,11 +319,11 @@ extension SelfTableViewManager {
 // MARK: - content manipulation for insert cells
 extension SelfTableViewManager {
     @available(iOS 11.0, *)
-    internal func performBatchUpdatesInsertRows(paths: [IndexPath], animation: UITableViewRowAnimation) {
+    internal func performBatchUpdatesInsertRows(paths: [IndexPath], animation: UITableView.RowAnimation) {
         performBatchUpdates({ self.insertRows(at: paths, with: animation) })
     }
     
-    internal func performBeginUpdatesInsertRows(paths: [IndexPath], animation: UITableViewRowAnimation) {
+    internal func performBeginUpdatesInsertRows(paths: [IndexPath], animation: UITableView.RowAnimation) {
         beginUpdates()
         self.insertRows(at: paths, with: animation)
         endUpdates()
@@ -486,13 +487,15 @@ extension SelfTableViewManager {
 open class CellController: NSObject {
     
     @IBOutlet public weak var controllerCell: CellView!
-    
+
+    /// internal control
     fileprivate var tableview: UITableView?
     fileprivate var identifier: String?
-
     fileprivate var persistentCell: Bool = false
     fileprivate var cachedCell: CellView?
+
     var tag: Int?
+    var bundleIdentifier: String?
 
     deinit{
         tableview = nil
@@ -509,7 +512,7 @@ open class CellController: NSObject {
         super.init()
     }
     
-    open func reloadMe(animation: UITableViewRowAnimation) {
+    open func reloadMe(animation: UITableView.RowAnimation) {
         if let tableview = tableview as? SelfTableViewManager, let thisIP = tableview.indexPathForCellController(cell: self) as IndexPath? {
             tableview.reloadRows(at: [thisIP], with: animation)
         }
@@ -523,7 +526,7 @@ open class CellController: NSObject {
         var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier()) as? CellView
         
         if cell == nil {
-            _ = SelfTableViewManagerCache.shared().loadNib(path: reuseIdentifier(), owner: self)
+            _ = SelfTableViewManagerCache.shared().loadNib(path: reuseIdentifier(), owner: self, bundleIdentifier: bundleIdentifier)
             cell = controllerCell;
             controllerCell = nil
         }
@@ -570,13 +573,14 @@ open class CellController: NSObject {
     
 }
 
+/// CellView
 open class CellView: UITableViewCell {
-    
-    var loadedKey: String?
-    var beingPersisted: Bool = false
 
     @IBOutlet weak var controller: CellController!
     @IBOutlet weak var backgroundCell: UIView!
+
+    var loadedKey: String?
+    var beingPersisted: Bool = false
     
     deinit{
         controller = nil
@@ -592,6 +596,7 @@ open class SectionController: NSObject {
     
     var rows: [AnyObject]?
     var tableView: UITableView?
+    var bundleIdentifier: String?
     
     deinit{
         rows = nil
@@ -615,7 +620,7 @@ open class SectionController: NSObject {
     
     open func loadDefaultHeaderForTableView(tableView: UITableView, viewForHeaderInSection section: Int) -> SectionView {
         let xibName = customNibName()
-        _ = SelfTableViewManagerCache.shared().loadNib(path: xibName, owner: self)
+        _ = SelfTableViewManagerCache.shared().loadNib(path: xibName, owner: self, bundleIdentifier: bundleIdentifier)
         let sectionView = controllerSection!
         sectionView.controller = self
         
@@ -627,6 +632,7 @@ open class SectionController: NSObject {
     }
 }
 
+/// SectionView
 open class SectionView: UIView {
     
     @IBOutlet weak var controller: SectionController!

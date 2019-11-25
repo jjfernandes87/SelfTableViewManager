@@ -23,10 +23,10 @@ class SelfTableViewManagerCache: NSObject {
     override init() {
         super.init()
         let selector = #selector(clearCache)
-        NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil)
+        NotificationCenter.default.addObserver(self, selector: selector, name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
     }
     
-    func loadNib(path: String?, owner: AnyObject) -> AnyObject? {
+    func loadNib(path: String?, owner: AnyObject, bundleIdentifier: String?) -> AnyObject? {
         guard let pathItem = path else {
             return nil
         }
@@ -39,7 +39,13 @@ class SelfTableViewManagerCache: NSObject {
         if let cachedNib = cached {
             return cachedNib.instantiate(withOwner: owner, options: [:]) as AnyObject?
         } else {
-            let newNib = UINib(nibName: pathItem, bundle: nil)
+            var bundle: Bundle?
+
+            if let identifier = bundleIdentifier {
+                bundle = Bundle(identifier: identifier)
+            }
+
+            let newNib = UINib(nibName: pathItem, bundle: bundle)
             objc_sync_enter(items)
             items.setValue(newNib, forKey: pathItem)
             objc_sync_exit(items)

@@ -317,6 +317,9 @@
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 1030;
 				TargetAttributes = {
+					ADD4259A3F41C3DBE9900F342102380C = {
+						LastSwiftMigration = 1120;
+					};
 					EA1A1B418FC08B740911D4FB42594EB3 = {
 						LastSwiftMigration = 0940;
 					};
@@ -562,7 +565,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -594,7 +597,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
