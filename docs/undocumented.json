@@ -107,154 +107,84 @@
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 41,
-      "symbol": "SelfTableViewManager",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 43,
-      "symbol": "SelfTableViewManager.deinit",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 48,
+      "line": 49,
       "symbol": "SelfTableViewManager.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 70,
+      "line": 71,
       "symbol": "SelfTableViewManager.managerProtocol",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 77,
+      "line": 78,
       "symbol": "SelfTableViewManager.getCollectionViewMode()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 83,
+      "line": 84,
       "symbol": "SelfTableViewManager.setRows(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 89,
+      "line": 90,
       "symbol": "SelfTableViewManager.setSectionsAndRows",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 93,
+      "line": 94,
       "symbol": "SelfTableViewManager.sections",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 232,
-      "symbol": "SelfTableViewManager",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 299,
-      "symbol": "SelfTableViewManager",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 301,
-      "symbol": "SelfTableViewManager.performBatchUpdatesRemoveRows(paths:allRows:animation:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 309,
-      "symbol": "SelfTableViewManager.performBeginUpdatesRemoveRows(paths:allRows:animation:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 319,
-      "symbol": "SelfTableViewManager",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 321,
-      "symbol": "SelfTableViewManager.performBatchUpdatesInsertRows(paths:animation:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 325,
-      "symbol": "SelfTableViewManager.performBeginUpdatesInsertRows(paths:animation:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 333,
-      "symbol": "SelfTableViewManager",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 335,
+      "line": 336,
       "symbol": "SelfTableViewManager.dequeueReusableCell(withIdentifier:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 340,
+      "line": 341,
       "symbol": "SelfTableViewManager.numberOfSections(in:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 348,
+      "line": 349,
       "symbol": "SelfTableViewManager.tableView(_:numberOfRowsInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 358,
+      "line": 359,
       "symbol": "SelfTableViewManager.tableView(_:cellForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 364,
+      "line": 365,
       "symbol": "SelfTableViewManager.tableView(_:editActionsForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 370,
+      "line": 371,
       "symbol": "SelfTableViewManager.tableView(_:canEditRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -262,350 +192,189 @@
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
       "line": 378,
-      "symbol": "SelfTableViewManager",
-      "symbol_kind": "source.lang.swift.decl.extension",
+      "symbol": "SelfTableViewManager.tableView(_:leadingSwipeActionsConfigurationForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 380,
+      "line": 385,
+      "symbol": "SelfTableViewManager.tableView(_:trailingSwipeActionsConfigurationForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
+      "line": 395,
       "symbol": "SelfTableViewManager.tableView(_:heightForHeaderInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 386,
+      "line": 401,
       "symbol": "SelfTableViewManager.tableView(_:viewForHeaderInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 393,
+      "line": 408,
       "symbol": "SelfTableViewManager.tableView(_:didSelectRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 408,
+      "line": 423,
       "symbol": "SelfTableViewManager.tableView(_:willDisplay:forRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 424,
-      "symbol": "SelfTableViewManager",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 425,
+      "line": 440,
       "symbol": "SelfTableViewManager.scrollViewDidScroll(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 436,
+      "line": 451,
       "symbol": "SelfTableViewManager.scrollViewDidEndDragging(_:willDecelerate:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 447,
+      "line": 462,
       "symbol": "SelfTableViewManager.scrollViewWillBeginDragging(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 458,
+      "line": 473,
       "symbol": "SelfTableViewManager.scrollViewDidEndDecelerating(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 472,
+      "line": 487,
       "symbol": "CellController",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 474,
+      "line": 489,
       "symbol": "CellController.controllerCell",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 481,
-      "symbol": "CellController.tag",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 483,
-      "symbol": "CellController.deinit",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 489,
+      "line": 506,
       "symbol": "CellController.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 493,
+      "line": 510,
       "symbol": "CellController.init(persistentCell:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 498,
+      "line": 515,
       "symbol": "CellController.reloadMe(animation:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 504,
+      "line": 521,
       "symbol": "CellController.tableView(tableView:cellForRowAtIndexPath:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 508,
+      "line": 525,
       "symbol": "CellController.loadDefaultCellForTable(tableView:atIndexPath:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 527,
+      "line": 544,
       "symbol": "CellController.tableView(tableView:editActionsForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 531,
+      "line": 548,
       "symbol": "CellController.tableView(tableView:canEditRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 535,
+      "line": 552,
       "symbol": "CellController.tableView(_:heightForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 539,
+      "line": 557,
+      "symbol": "CellController.tableView(tableView:trailingSwipeActionsConfigurationForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
+      "line": 562,
+      "symbol": "CellController.tableView(tableView:leadingSwipeActionsConfigurationForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
+      "line": 566,
       "symbol": "CellController.tableView(tableView:didSelectThisCellAtIndexPath:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 549,
-      "symbol": "CellView",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 551,
-      "symbol": "CellView.loadedKey",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 552,
-      "symbol": "CellView.beingPersisted",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 554,
-      "symbol": "CellView.controller",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 555,
-      "symbol": "CellView.backgroundCell",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 557,
-      "symbol": "CellView.deinit",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 565,
+      "line": 593,
       "symbol": "SectionController",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 567,
-      "symbol": "SectionController.controllerSection",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 569,
-      "symbol": "SectionController.rows",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 570,
-      "symbol": "SectionController.tableView",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 572,
-      "symbol": "SectionController.deinit",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 578,
+      "line": 607,
       "symbol": "SectionController.tableView(tableView:heightForHeaderInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 582,
-      "symbol": "SectionController.tableView(tableView:titleForHeaderInSection:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 586,
+      "line": 615,
       "symbol": "SectionController.tableView(tableView:viewForHeaderInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 592,
+      "line": 621,
       "symbol": "SectionController.loadDefaultHeaderForTableView(tableView:viewForHeaderInSection:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 601,
-      "symbol": "SectionController.reloadMe()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 606,
-      "symbol": "SectionView",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 608,
-      "symbol": "SectionView.controller",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManager.swift",
-      "line": 610,
-      "symbol": "SectionView.deinit",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManagerCache.swift",
-      "line": 10,
-      "symbol": "SelfTableViewManagerCache",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManagerCache.swift",
-      "line": 12,
-      "symbol": "SelfTableViewManagerCache.items",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManagerCache.swift",
-      "line": 13,
-      "symbol": "SelfTableViewManagerCache.instance",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManagerCache.swift",
-      "line": 15,
-      "symbol": "SelfTableViewManagerCache.deinit",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManagerCache.swift",
-      "line": 17,
-      "symbol": "SelfTableViewManagerCache.shared()",
-      "symbol_kind": "source.lang.swift.decl.function.method.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManagerCache.swift",
-      "line": 23,
-      "symbol": "SelfTableViewManagerCache.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManagerCache.swift",
-      "line": 29,
-      "symbol": "SelfTableViewManagerCache.loadNib(path:owner:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/SelfTableViewManager/SelfTableViewManager/Classes/SelfTableViewManagerCache.swift",
-      "line": 51,
-      "symbol": "SelfTableViewManagerCache.clearCache()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
