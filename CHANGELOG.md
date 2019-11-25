@@ -1,4 +1,12 @@
 ##  4.1.0
+* update docs - Julio Fernandes
+* update docs - Julio Fernandes
+* change swift-version - Julio Fernandes
+* Publish pod version: 4.1.0 [ci skip] - Julio Fernandes
+* Change version number: 4.1.0 - Julio Fernandes
+* Adding support for multiples bundles when loading nib - Julio Fernandes
+
+##  4.1.0
 * Change version number: 4.1.0 - Julio Fernandes
 * Adding support for multiples bundles when loading nib - Julio Fernandes
 
