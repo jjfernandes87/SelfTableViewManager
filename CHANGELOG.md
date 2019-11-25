@@ -1,3 +1,7 @@
+##  4.2.0
+* Change version number: 4.2.0 - Julio Fernandes
+* adding init for bundle - Julio Fernandes
+
 ##  4.1.0
 * update docs - Julio Fernandes
 * update docs - Julio Fernandes
