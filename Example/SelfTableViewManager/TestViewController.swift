@@ -23,7 +23,6 @@ extension TestViewController: TableViewManagerDelegate {
     
 }
 
-@objc(CustomTestCell)
 class CustomTestCell: CellController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {

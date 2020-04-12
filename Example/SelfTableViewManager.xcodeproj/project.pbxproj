@@ -184,7 +184,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				46FDFDA37290838906C36A13 /* [CP] Embed Pods Frameworks */,
-				23161162BA0DC84786F45766 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,8 +202,6 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				2EDCD8016B13FC9ECBF9F85A /* [CP] Embed Pods Frameworks */,
-				B7354FDAABD93FBCF31FBB89 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,46 +275,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		23161162BA0DC84786F45766 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SelfTableViewManager_Example/Pods-SelfTableViewManager_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2EDCD8016B13FC9ECBF9F85A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SelfTableViewManager_Tests/Pods-SelfTableViewManager_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SelfTableViewManager_Tests/Pods-SelfTableViewManager_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		46FDFDA37290838906C36A13 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SelfTableViewManager_Example/Pods-SelfTableViewManager_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SelfTableViewManager_Example/Pods-SelfTableViewManager_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SelfTableViewManager/SelfTableViewManager.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -326,22 +290,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SelfTableViewManager_Example/Pods-SelfTableViewManager_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B7354FDAABD93FBCF31FBB89 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SelfTableViewManager_Tests/Pods-SelfTableViewManager_Tests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SelfTableViewManager_Example/Pods-SelfTableViewManager_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B8474C57F006DE66CB0CA147 /* [CP] Check Pods Manifest.lock */ = {

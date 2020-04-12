@@ -9,7 +9,6 @@
 import UIKit
 import SelfTableViewManager
 
-@objc(XibCell)
 class XibCell: CellController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {

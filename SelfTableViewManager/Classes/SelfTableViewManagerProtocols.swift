@@ -29,7 +29,7 @@ public protocol TableViewManagerDelegate: NSObjectProtocol {
     func tableViewManager(_ tableView: SelfTableViewManager, scrollViewDidEndDecelerating scrollView: UIScrollView)
 }
 
-extension TableViewManagerDelegate {
+public extension TableViewManagerDelegate {
     /// display manipulation
     func tableViewManager(_ table: SelfTableViewManager, willDisplay cell: CellController) {}
     func tableViewManager(_ table: SelfTableViewManager, willDisplay cell: CellController, indexPath: IndexPath) {}

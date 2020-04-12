@@ -1,6 +1,0 @@
-framework module SelfTableViewManager {
-  umbrella header "SelfTableViewManager-umbrella.h"
-
-  export *
-  module * { export * }
-}

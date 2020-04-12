@@ -58,16 +58,15 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: TableViewManagerDelegate {
-    func tableViewManager(tableView: SelfTableViewManager, scrollViewWillBeginDragging scrollView: UIScrollView) {
+    func tableViewManager(_ tableView: SelfTableViewManager, scrollViewWillBeginDragging scrollView: UIScrollView) {
         self.scrollingTableView = true
     }
 
-    func tableViewManager(tableView: SelfTableViewManager, scrollViewDidEndDecelerating scrollView: UIScrollView) {
+    func tableViewManager(_ tableView: SelfTableViewManager, scrollViewDidEndDecelerating scrollView: UIScrollView) {
         self.scrollingTableView = false
     }
 }
 
-@objc(CustomCell)
 class CustomCell: CellController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = loadDefaultCellForTable(tableView: tableView, atIndexPath: indexPath) as! CustomCellView
@@ -92,7 +91,6 @@ class CustomCellView: CellView {
     
 }
 
-@objc(CachedCell)
 class CachedCell: CellController {
 
     var value: Double

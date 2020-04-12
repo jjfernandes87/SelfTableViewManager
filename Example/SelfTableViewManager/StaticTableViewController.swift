@@ -20,7 +20,6 @@ class StaticTableViewController: UIViewController {
     
 }
 
-@objc(StaticCustomCell)
 class StaticCustomCell: CellController {
     
     var defaultSize: CGFloat    = 112

@@ -515,7 +515,7 @@ open class CellController: NSObject {
     }
     
     fileprivate func reuseIdentifier() -> String {
-        return NSStringFromClass(object_getClass(self)!)
+        return String(describing: self.classForCoder)
     }
     
 }
