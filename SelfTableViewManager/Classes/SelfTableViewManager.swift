@@ -26,12 +26,20 @@ open class SelfTableViewManager: UITableView {
         managerDelegate = nil
         print(description)
     }
+
+    public init() {
+        super.init(frame: .zero, style: .plain)
+        self.bootstrap()
+    }
+
+    public init(frame: CGRect) {
+        super.init(frame: frame, style: .plain)
+        self.bootstrap()
+    }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.bootstrap()
-        delegate = self
-        dataSource = self
     }
     
     /// bootstrap framework with automatic dimension
@@ -40,6 +48,9 @@ open class SelfTableViewManager: UITableView {
             estimatedRowHeight = 44
             rowHeight = UITableView.automaticDimension
         }
+
+        delegate = self
+        dataSource = self
     }
     
     /// define tableview type

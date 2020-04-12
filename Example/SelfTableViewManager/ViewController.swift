@@ -9,13 +9,46 @@
 import UIKit
 import SelfTableViewManager
 
+extension NSLayoutConstraint {
+    static func pin(_ aView: UIView, to view: UIView, padding: CGFloat = 0) -> PinLayout {
+
+        let left = view.leftAnchor.constraint(equalTo: aView.leftAnchor, constant: padding)
+        let right = view.rightAnchor.constraint(equalTo: aView.rightAnchor, constant: padding)
+        let top = view.topAnchor.constraint(equalTo: aView.topAnchor, constant: padding)
+        let bottom = view.bottomAnchor.constraint(equalTo: aView.bottomAnchor, constant: padding)
+
+        left.isActive = true
+        right.isActive = true
+        top.isActive = true
+        bottom.isActive = true
+
+        return PinLayout(left: left, right: right, top: top, bottom: bottom)
+    }
+}
+
+class PinLayout: NSObject {
+    let left: NSLayoutConstraint
+    let right: NSLayoutConstraint
+    let top: NSLayoutConstraint
+    let bottom: NSLayoutConstraint
+
+    init(left: NSLayoutConstraint, right: NSLayoutConstraint, top: NSLayoutConstraint, bottom: NSLayoutConstraint) {
+        self.left = left
+        self.right = right
+        self.top = top
+        self.bottom = bottom
+        super.init()
+    }
+}
+
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: SelfTableViewManager!
     
     var firstTime = true
     var scrollingTableView = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.managerProtocol = self
