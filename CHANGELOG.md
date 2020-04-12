@@ -1,3 +1,9 @@
+##  5.0.0
+* Change version number: 5.0.0 - Julio Fernandes
+* Correção dos testes unitarios - Julio Fernandes
+* Removendo arquivos de gitignore - Julio Fernandes
+* Removendo partes de obj-c e alterando projeto para swift 5 - Julio Fernandes
+
 ##  4.2.0
 * Change version number: 4.2.0 - Julio Fernandes
 * adding init for bundle - Julio Fernandes
