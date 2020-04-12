@@ -175,11 +175,11 @@ class ScrollTableViewMock: NSObject, TableViewManagerDelegate {
     var scrollViewWillBeginDragging = false
     var scrollViewDidEndDecelerating = false
 
-    func tableViewManager(tableView: SelfTableViewManager, scrollViewWillBeginDragging scrollView: UIScrollView) {
+    func tableViewManager(_ tableView: SelfTableViewManager, scrollViewWillBeginDragging scrollView: UIScrollView) {
         self.scrollViewWillBeginDragging = true
     }
 
-    func tableViewManager(tableView: SelfTableViewManager, scrollViewDidEndDecelerating scrollView: UIScrollView) {
+    func tableViewManager(_ tableView: SelfTableViewManager, scrollViewDidEndDecelerating scrollView: UIScrollView) {
         self.scrollViewDidEndDecelerating = true
     }
 }
