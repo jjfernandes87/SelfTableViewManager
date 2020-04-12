@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SelfTableViewManager'
-  s.version          = '4.2.0'
+  s.version          = '5.0.0'
   s.summary          = 'Um jeito simples de criar e manipular uma TableView.'
 
   s.description      = <<-DESC
@@ -13,6 +13,10 @@ Esqueça todos os metodos obrigatórios para criar e manipular uma TableView, ca
   s.source           = { :git => 'https://github.com/jjfernandes87/SelfTableViewManager.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.3'
+  s.requires_arc = true
+  s.cocoapods_version = '>= 1.5'
+  s.swift_version = '5.0'
+
   s.source_files = 'SelfTableViewManager/Classes/**/*'
 
 end
