@@ -1,3 +1,6 @@
+##  5.1.0
+* Change version number: 5.1.0 - Julio Fernandes
+
 ##  5.0.0
 * Publish pod version: 5.0.0 [ci skip] - Julio Fernandes
 * Corrigindo bundle - Julio Fernandes
