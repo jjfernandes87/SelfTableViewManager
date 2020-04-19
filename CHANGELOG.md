@@ -1,4 +1,18 @@
 ##  5.0.0
+* Publish pod version: 5.0.0 [ci skip] - Julio Fernandes
+* Corrigindo bundle - Julio Fernandes
+* Publish pod version: 5.0.0 [ci skip] - Julio Fernandes
+* Publish pod version: 5.0.0 [ci skip] - Julio Fernandes
+* Ajustando inicialização sem necessidade de xib ou storyboard - Julio Fernandes
+* Ajustando inicialização sem necessidade de xib ou storyboard - Julio Fernandes
+* Publish pod version: 5.0.0 [ci skip] - Julio Fernandes
+* Publish pod version: 5.0.0 [ci skip] - Julio Fernandes
+* Change version number: 5.0.0 - Julio Fernandes
+* Correção dos testes unitarios - Julio Fernandes
+* Removendo arquivos de gitignore - Julio Fernandes
+* Removendo partes de obj-c e alterando projeto para swift 5 - Julio Fernandes
+
+##  5.0.0
 * Corrigindo bundle - Julio Fernandes
 * Publish pod version: 5.0.0 [ci skip] - Julio Fernandes
 * Publish pod version: 5.0.0 [ci skip] - Julio Fernandes
