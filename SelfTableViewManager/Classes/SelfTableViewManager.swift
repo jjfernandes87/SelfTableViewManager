@@ -448,7 +448,7 @@ open class CellController: NSObject {
     fileprivate var cachedCell: CellView?
 
     var tag: Int?
-    var bundleIdentifier: String?
+    var bundleURL: String?
 
     deinit{
         tableview = nil
@@ -461,7 +461,7 @@ open class CellController: NSObject {
     }
 
     public init(bundle: String? = nil) {
-        self.bundleIdentifier = bundle
+        self.bundleURL = bundle
         super.init()
     }
 
@@ -484,7 +484,7 @@ open class CellController: NSObject {
         var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier()) as? CellView
         
         if cell == nil {
-            _ = SelfTableViewManagerCache.shared().loadNib(path: reuseIdentifier(), owner: self, bundleIdentifier: bundleIdentifier)
+            _ = SelfTableViewManagerCache.shared().loadNib(path: reuseIdentifier(), owner: self, bundleURL: bundleURL)
             cell = controllerCell;
             controllerCell = nil
         }
@@ -553,7 +553,7 @@ open class SectionController: NSObject {
     
     var rows: [AnyObject]?
     var tableView: UITableView?
-    var bundleIdentifier: String?
+    var bundleURL: String?
     
     deinit{
         rows = nil
@@ -562,7 +562,7 @@ open class SectionController: NSObject {
     }
 
     public init(bundle: String? = nil) {
-        self.bundleIdentifier = bundle
+        self.bundleURL = bundle
         super.init()
     }
     
@@ -582,7 +582,7 @@ open class SectionController: NSObject {
     
     open func loadDefaultHeaderForTableView(tableView: UITableView, viewForHeaderInSection section: Int) -> SectionView {
         let xibName = customNibName()
-        _ = SelfTableViewManagerCache.shared().loadNib(path: xibName, owner: self, bundleIdentifier: bundleIdentifier)
+        _ = SelfTableViewManagerCache.shared().loadNib(path: xibName, owner: self, bundleURL: bundleURL)
         let sectionView = controllerSection!
         sectionView.controller = self
         
