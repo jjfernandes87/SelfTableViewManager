@@ -14,6 +14,7 @@ Esqueça todos os metodos obrigatórios para criar e manipular uma TableView, ca
 
   s.ios.deployment_target = '9.3'
   s.requires_arc = true
+
   s.cocoapods_version = '>= 1.5'
   s.swift_version = '5.0'
 

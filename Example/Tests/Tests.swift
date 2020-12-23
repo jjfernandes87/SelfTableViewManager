@@ -167,6 +167,30 @@ class Tests: XCTestCase {
         XCTAssertEqual(mock.scrollViewDidEndDecelerating, true)
     }
 
+    func testDidEndDisplaying() {
+        let mock = ScrollTableViewMock()
+        let table = systemUnderTest.tableView!
+        let items = [CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController(),
+                     CellController()
+        ]
+        table.setRows(items)
+        table.managerProtocol = mock
+        table.tableView(table, didEndDisplaying: UITableViewCell(), forRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertEqual(mock.didEndDisplaying, true)
+    }
+
 }
 
 /// Micks
@@ -174,6 +198,7 @@ class ScrollTableViewMock: NSObject, TableViewManagerDelegate {
 
     var scrollViewWillBeginDragging = false
     var scrollViewDidEndDecelerating = false
+    var didEndDisplaying = false
 
     func tableViewManager(_ tableView: SelfTableViewManager, scrollViewWillBeginDragging scrollView: UIScrollView) {
         self.scrollViewWillBeginDragging = true
@@ -181,5 +206,9 @@ class ScrollTableViewMock: NSObject, TableViewManagerDelegate {
 
     func tableViewManager(_ tableView: SelfTableViewManager, scrollViewDidEndDecelerating scrollView: UIScrollView) {
         self.scrollViewDidEndDecelerating = true
+    }
+
+    func tableViewManager(_ table: SelfTableViewManager, didEndDisplaying cell: CellController) {
+        self.didEndDisplaying = true
     }
 }

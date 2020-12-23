@@ -27,16 +27,21 @@ open class SelfTableViewManager: UITableView {
         print(description)
     }
 
+    /// Init
     public init() {
         super.init(frame: .zero, style: .plain)
         self.bootstrap()
     }
 
+    /// Init with frame
+    /// - Parameter frame: CGRect
     public init(frame: CGRect) {
         super.init(frame: frame, style: .plain)
         self.bootstrap()
     }
-    
+
+    /// Init with coder
+    /// - Parameter aDecoder: aDecoder
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.bootstrap()
@@ -78,7 +83,8 @@ open class SelfTableViewManager: UITableView {
         self.mode = .single
         self.reloadData()
     }
-    
+
+    /// setSectionsAndRows
     public var setSectionsAndRows = [AnyObject]() {
         willSet { setSectionsAndRows(sequence: newValue) }
     }
@@ -329,7 +335,10 @@ extension SelfTableViewManager: UITableViewDataSource {
         let cell = super.dequeueReusableCell(withIdentifier: identifier) as? CellView
         return cell
     }
-    
+
+    /// numberOfSections
+    /// - Parameter tableView: tableView
+    /// - Returns: Count
     public func numberOfSections(in tableView: UITableView) -> Int {
         if mode == .single {
             return 1
@@ -337,7 +346,12 @@ extension SelfTableViewManager: UITableViewDataSource {
             return sections.count
         }
     }
-    
+
+    /// numberOfRowsInSection
+    /// - Parameters:
+    ///   - tableView: tableView
+    ///   - section: section
+    /// - Returns: count
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if mode == .single {
             return rows.count
@@ -347,19 +361,34 @@ extension SelfTableViewManager: UITableViewDataSource {
             return 0
         }
     }
-    
+
+    /// cellForRowAt
+    /// - Parameters:
+    ///   - tableView: tableView
+    ///   - indexPath: indexPath
+    /// - Returns: UITableViewCell
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return UITableViewCell() }
         controller.tableview = tableView
         return controller.tableView(tableView: tableView, cellForRowAtIndexPath: indexPath)
     }
 
+    /// editActionsForRowAt
+    /// - Parameters:
+    ///   - tableView: tableView
+    ///   - indexPath: indexPath
+    /// - Returns: [UITableViewRowAction]
     public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return nil }
         controller.tableview = tableView
         return controller.tableView(tableView: tableView, editActionsForRowAt: indexPath)
     }
 
+    /// canEditRowAt
+    /// - Parameters:
+    ///   - tableView: tableView
+    ///   - indexPath: indexPath
+    /// - Returns: Bool
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return false }
         controller.tableview = tableView
@@ -383,20 +412,34 @@ extension SelfTableViewManager: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate methods
 extension SelfTableViewManager: UITableViewDelegate {
-    
+
+    /// heightForHeaderInSection
+    /// - Parameters:
+    ///   - tableView: tableView
+    ///   - section: section
+    /// - Returns: height
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if sections.count == 0 { return 0 }
         let controller = sections[section] as! SectionController
         return controller.tableView(tableView: tableView, heightForHeaderInSection: section)
     }
-    
+
+    /// viewForHeaderInSection
+    /// - Parameters:
+    ///   - tableView: tableView
+    ///   - section: section
+    /// - Returns: uiview
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if sections.count == 0 { return nil }
         let controller = sections[section] as! SectionController
         controller.tableView = tableView
         return controller.tableView(tableView: tableView, viewForHeaderInSection: section)
     }
-    
+
+    /// didSelectRowAt
+    /// - Parameters:
+    ///   - tableView: tableView
+    ///   - indexPath: indexPath
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return }
         controller.tableView(tableView: tableView, didSelectThisCellAtIndexPath: indexPath)
@@ -404,32 +447,58 @@ extension SelfTableViewManager: UITableViewDelegate {
         managerDelegate?.tableViewManager(self, didSelectRow: controller, atSection: nil)
         managerDelegate?.tableViewManager(self, didSelectRowAtIndexPath: indexPath)
     }
-    
+
+    /// willDisplay
+    /// - Parameters:
+    ///   - tableView: tableView
+    ///   - cell: cell
+    ///   - indexPath: indexPath
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return }
         managerDelegate?.tableViewManager(self, willDisplay: controller)
         managerDelegate?.tableViewManager(self, willDisplay: controller, indexPath: indexPath)
     }
-    
+
+    /// didEndDisplaying
+    /// - Parameters:
+    ///   - tableView: tableView
+    ///   - cell: cell
+    ///   - indexPath: indexPath
+    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let controller = findControllerAtIndexPath(indexPath: indexPath) else { return }
+        managerDelegate?.tableViewManager(self, didEndDisplaying: controller)
+        managerDelegate?.tableViewManager(self, didEndDisplaying: controller, indexPath: indexPath)
+    }
 }
 
 // MARK: - ScrollView manipulation
 extension SelfTableViewManager {
+
+    /// scrollViewDidScroll
+    /// - Parameter scrollView: scrollView
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         managerDelegate?.tableViewManager(self, scrollView: scrollView, didChangeScrollOffset: self.contentOffset)
         managerDelegate?.tableViewManager(self, scrollViewDidScroll: scrollView)
     }
-    
+
+    /// scrollViewDidEndDragging
+    /// - Parameters:
+    ///   - scrollView: scrollView
+    ///   - decelerate: decelerate
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         managerDelegate?.tableViewManager(self, scrollView: scrollView, didDraggedToPosition: scrollView.contentOffset)
         managerDelegate?.tableViewManager(self, scrollViewDidEndDragging: scrollView, willDecelerate: decelerate)
     }
-    
+
+    /// scrollViewWillBeginDragging
+    /// - Parameter scrollView: scrollView
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         managerDelegate?.tableViewManager(self, willBeginDragging: scrollView.contentOffset)
         managerDelegate?.tableViewManager(self, scrollViewWillBeginDragging: scrollView)
     }
-    
+
+    /// scrollViewDidEndDecelerating
+    /// - Parameter scrollView: scrollView 
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         managerDelegate?.tableViewManager(self, scrollView: scrollView, didDraggedToPosition: scrollView.contentOffset)
         managerDelegate?.tableViewManager(self, scrollViewDidEndDecelerating: scrollView)

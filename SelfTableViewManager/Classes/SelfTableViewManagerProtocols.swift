@@ -12,6 +12,8 @@ public protocol TableViewManagerDelegate: NSObjectProtocol {
     /// display manipulation
     func tableViewManager(_ table: SelfTableViewManager, willDisplay cell: CellController)
     func tableViewManager(_ table: SelfTableViewManager, willDisplay cell: CellController, indexPath: IndexPath)
+    func tableViewManager(_ table: SelfTableViewManager, didEndDisplaying cell: CellController)
+    func tableViewManager(_ table: SelfTableViewManager, didEndDisplaying cell: CellController, indexPath: IndexPath)
 
     /// touch manipulation
     func tableViewManager(_ table: SelfTableViewManager, didSelectRow row: CellController, atSection section: SectionController?)
@@ -33,6 +35,8 @@ public extension TableViewManagerDelegate {
     /// display manipulation
     func tableViewManager(_ table: SelfTableViewManager, willDisplay cell: CellController) {}
     func tableViewManager(_ table: SelfTableViewManager, willDisplay cell: CellController, indexPath: IndexPath) {}
+    func tableViewManager(_ table: SelfTableViewManager, didEndDisplaying cell: CellController) {}
+    func tableViewManager(_ table: SelfTableViewManager, didEndDisplaying cell: CellController, indexPath: IndexPath) {}
 
     /// touch manipulation
     func tableViewManager(_ table: SelfTableViewManager, didSelectRow row: CellController, atSection section: SectionController?) {}

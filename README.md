@@ -17,7 +17,7 @@ Um jeito simples de criar e manipular uma UITableView.
 
 - iOS 9.3+
 - Xcode 9.0+
-- Swift 4.0+
+- Swift 5.0+
 
 ## Communication
 
