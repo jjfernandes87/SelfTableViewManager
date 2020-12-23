@@ -1,3 +1,8 @@
+##  5.1.1
+* Alterando versão - Julio Junior
+* atuando sistema de versão - Julio Junior
+* feat: Novo metodo para delegate de endDisplayCell - Julio Junior
+
 ##  5.1.0
 * Change version number: 5.1.0 - Julio Fernandes
 
