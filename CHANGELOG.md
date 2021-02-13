@@ -1,3 +1,8 @@
+##  5.1.2
+* Change version number: 5.1.2 - Julio Junior
+* Merge pull request #6 from joaoGMPereira/fix/sections - Julio Fernandes Jr
+* validate sections count - Joao Gabriel de Medeiros Pereira
+
 ##  5.1.1
 * Alterando versão - Julio Junior
 * atuando sistema de versão - Julio Junior
