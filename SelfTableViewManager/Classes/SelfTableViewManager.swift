@@ -209,7 +209,7 @@ open class SelfTableViewManager: UITableView {
                 controller = rows[indexPath.row] as? CellController
             }
         } else {
-            if sections.count > indexPath.section, let section = sections[indexPath.section] as? SectionController, let rows = section.rows {
+            if sections.count > indexPath.section, let section = sections[indexPath.section] as? SectionController, let rows = section.rows, rows.count > indexPath.row {
                 controller = rows[indexPath.row] as? CellController
             }
         }
