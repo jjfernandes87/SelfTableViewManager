@@ -1,4 +1,10 @@
 ##  5.1.3
+* Publish pod version: 5.1.3 [ci skip] - Julio Junior
+* Change version number: 5.1.3 - Julio Junior
+* Merge pull request #7 from sousaleonardo/fix/rows-validation - Julio Fernandes Jr
+* Include rows count validation - Leonardo Sousa
+
+##  5.1.3
 * Change version number: 5.1.3 - Julio Junior
 * Merge pull request #7 from sousaleonardo/fix/rows-validation - Julio Fernandes Jr
 * Include rows count validation - Leonardo Sousa
