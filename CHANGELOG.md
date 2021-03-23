@@ -1,3 +1,8 @@
+##  5.1.3
+* Change version number: 5.1.3 - Julio Junior
+* Merge pull request #7 from sousaleonardo/fix/rows-validation - Julio Fernandes Jr
+* Include rows count validation - Leonardo Sousa
+
 ##  5.1.2
 * Change version number: 5.1.2 - Julio Junior
 * Merge pull request #6 from joaoGMPereira/fix/sections - Julio Fernandes Jr
