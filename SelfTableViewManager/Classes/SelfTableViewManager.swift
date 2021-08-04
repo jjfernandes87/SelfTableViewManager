@@ -619,7 +619,6 @@ open class CellController: NSObject {
             return String(format: "%@View", path)
         }
     }
-    
 }
 
 /// CellView
@@ -654,7 +653,13 @@ open class SectionController: NSObject {
     var tableView: UITableView?
     var bundleURL: String?
     
-    deinit{
+    private var bundle: Bundle? {
+        guard let bundleURL = bundleURL,
+              let url = URL(string: bundleURL) else { return Bundle.main }
+        return Bundle(url: url)
+    }
+    
+    deinit {
         rows = nil
         tableView = nil
         controllerSection = nil
@@ -677,12 +682,22 @@ open class SectionController: NSObject {
         return loadDefaultHeaderForTableView(tableView: tableView, viewForHeaderInSection: section)
     }
     
-    fileprivate func customNibName() -> String { return NSStringFromClass(object_getClass(self)!) }
+    fileprivate func customSectionName() -> String { return NSStringFromClass(object_getClass(self)!) }
     
     open func loadDefaultHeaderForTableView(tableView: UITableView, viewForHeaderInSection section: Int) -> SectionView {
-        let xibName = customNibName()
-        _ = SelfTableViewManagerCache.shared().loadNib(path: xibName, owner: self, bundleURL: bundleURL)
-        let sectionView = controllerSection!
+        let sectionName = customSectionName()
+        
+        let sectionView: SectionView
+        let isNibFileExists = bundle?.path(forResource: sectionName, ofType: "nib") != nil
+        if isNibFileExists {
+            _ = SelfTableViewManagerCache.shared().loadNib(path: sectionName, owner: self, bundleURL: bundleURL)
+            sectionView = controllerSection!
+        } else {
+            let identifier = String(format: "%@View", sectionName)
+            let instance = NSClassFromString(identifier) as? SectionView.Type
+            sectionView = instance?.init(frame: .zero) ?? SectionView()
+        }
+        
         sectionView.controller = self
         
         return sectionView
@@ -699,6 +714,14 @@ open class SectionView: UIView {
     @IBOutlet weak var controller: SectionController!
     
     deinit{ controller = nil }
+    
+    required public override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 }
 
 
