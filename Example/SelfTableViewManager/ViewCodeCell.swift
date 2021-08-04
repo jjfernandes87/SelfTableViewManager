@@ -27,7 +27,6 @@ final class ViewCodeCell: CellController {
 final class ViewCodeCellView: CellView {
     private lazy var titleLabel = UILabel()
     
-    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
