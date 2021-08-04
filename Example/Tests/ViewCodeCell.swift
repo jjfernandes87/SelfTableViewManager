@@ -6,4 +6,18 @@
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SelfTableViewManager
+
+final class ViewCodeCell: CellController {
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = loadDefaultCellForTable(tableView: tableView, atIndexPath: indexPath) as? ViewCodeCellView else {
+            return UITableViewCell()
+        }
+        return cell
+    }
+}
+
+final class ViewCodeCellView: CellView {}
+
