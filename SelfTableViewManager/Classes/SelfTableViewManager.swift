@@ -518,8 +518,14 @@ open class CellController: NSObject {
 
     var tag: Int?
     var bundleURL: String?
+    
+    private var bundle: Bundle? {
+        guard let bundleURL = bundleURL,
+              let url = URL(string: bundleURL) else { return Bundle.main }
+        return Bundle(url: url)
+    }
 
-    deinit{
+    deinit {
         tableview = nil
         controllerCell = nil
         cachedCell = nil
@@ -553,9 +559,17 @@ open class CellController: NSObject {
         var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier()) as? CellView
         
         if cell == nil {
-            _ = SelfTableViewManagerCache.shared().loadNib(path: reuseIdentifier(), owner: self, bundleURL: bundleURL)
-            cell = controllerCell;
-            controllerCell = nil
+            let path = reuseIdentifier()
+            let shouldLoadNib = bundle?.path(forResource: path, ofType: "nib") != nil
+            if shouldLoadNib {
+                _ = SelfTableViewManagerCache.shared().loadNib(path: path, owner: self, bundleURL: bundleURL)
+                cell = controllerCell;
+                controllerCell = nil
+            } else {
+                let identifier = getCellViewIdentifier(with: path)
+                let instance = NSClassFromString(identifier) as? CellView.Type
+                cell = instance?.init(style: .default, reuseIdentifier: reuseIdentifier())
+            }
         }
 
         if persistentCell {
@@ -598,6 +612,14 @@ open class CellController: NSObject {
         return String(describing: self.classForCoder)
     }
     
+    private func getCellViewIdentifier(with path: String) -> String {
+        if let bundleName = bundle?.infoDictionary?["CFBundleName"] as? String {
+            return String(format: "\(bundleName).%@View", path)
+        } else {
+            return String(format: "%@View", path)
+        }
+    }
+    
 }
 
 /// CellView
@@ -609,7 +631,15 @@ open class CellView: UITableViewCell {
     var loadedKey: String?
     var beingPersisted: Bool = false
     
-    deinit{
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    required override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    deinit {
         controller = nil
         loadedKey = nil
     }
