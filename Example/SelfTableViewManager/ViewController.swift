@@ -82,9 +82,9 @@ class ViewController: UIViewController {
     @IBAction func addCell() {
         if firstTime {
             firstTime = false
-            tableView.insertRowsOnTop(rows: [CustomCell(), CustomCell(), CustomCell()], animation: .automatic)
+            tableView.insertRowsOnTop(rows: [CustomCell(), CustomCell(), CustomCell(), ViewCodeCell()], animation: .automatic)
         } else {
-            tableView.insertRows(rows: [CustomCell(), CustomCell(), CustomCell()], at: 1, animation: .automatic)
+            tableView.insertRows(rows: [CustomCell(), CustomCell(), CustomCell(), ViewCodeCell()], at: 1, animation: .automatic)
         }
     }
     

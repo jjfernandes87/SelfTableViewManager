@@ -15,7 +15,7 @@ class StaticTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.setRows([StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell()])
+        tableView.setSectionsAndRows = [StaticSectionCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell(), StaticCustomCell()]
     }
     
 }
@@ -85,4 +85,46 @@ class StaticCustomCellView: CellView {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var detail: UILabel!
     @IBOutlet weak var icon: UIImageView!
+}
+
+class StaticSectionCell: SectionController {
+    public override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
+        guard let section = loadDefaultHeaderForTableView(tableView: tableView, viewForHeaderInSection: section) as? StaticSectionCellView else {
+            return UIView()
+        }
+        section.backgroundColor = .white
+        section.setTitle("Custom header view code")
+        return section
+    }
+}
+
+class StaticSectionCellView: SectionView {
+    private lazy var titleLabel = UILabel()
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    public required init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    private func setup() {
+        addSubview(titleLabel)
+        
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+        ])
+    }
+    
+    func setTitle(_ title: String) {
+        titleLabel.text = title
+    }
 }

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SelfTableViewManager'
-  s.version          = '5.1.3'
+  s.version          = '5.1.4'
   s.summary          = 'Um jeito simples de criar e manipular uma TableView.'
 
   s.description      = <<-DESC

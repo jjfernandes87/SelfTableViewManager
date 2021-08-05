@@ -77,3 +77,7 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+
+# Mac OS file system
+
+.DS_Store

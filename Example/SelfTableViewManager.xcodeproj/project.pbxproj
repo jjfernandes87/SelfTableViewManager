@@ -20,6 +20,8 @@
 		8631AA06205E835D00117992 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631AA04205E835D00117992 /* TestViewController.swift */; };
 		86C0B2D8210E6F2600476103 /* XibCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0B2D6210E6F2600476103 /* XibCell.swift */; };
 		86C0B2D9210E6F2600476103 /* XibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0B2D7210E6F2600476103 /* XibCell.xib */; };
+		EF0BF52A26BB2FB400873D7A /* ViewCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0BF52926BB2FB400873D7A /* ViewCodeCell.swift */; };
+		EF0BF54226BB46A100873D7A /* ViewCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0BF54126BB46A100873D7A /* ViewCodeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		891F25236C2CCE60F7E51A76 /* Pods-SelfTableViewManager_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfTableViewManager_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SelfTableViewManager_Tests/Pods-SelfTableViewManager_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		99F34E942ABCF89CA678757F /* Pods_SelfTableViewManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfTableViewManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB4799675DBADD1E3B487CA /* Pods_SelfTableViewManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfTableViewManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF0BF52926BB2FB400873D7A /* ViewCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeCell.swift; sourceTree = "<group>"; };
+		EF0BF54126BB46A100873D7A /* ViewCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeCell.swift; sourceTree = "<group>"; };
 		FC70560FC4E347922DB49CC9 /* SelfTableViewManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SelfTableViewManager.podspec; path = ../SelfTableViewManager.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +136,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				EF0BF52926BB2FB400873D7A /* ViewCodeCell.swift */,
 			);
 			name = "Example for SelfTableViewManager";
 			path = SelfTableViewManager;
@@ -148,6 +153,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				EF0BF53826BB403E00873D7A /* Cells */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -170,6 +176,14 @@
 				738C4B16F166230FE2D46C1C /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		EF0BF53826BB403E00873D7A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EF0BF54126BB46A100873D7A /* ViewCodeCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +355,7 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				862F48FC211F6DD0003F9A0B /* StaticTableViewController.swift in Sources */,
 				86C0B2D8210E6F2600476103 /* XibCell.swift in Sources */,
+				EF0BF52A26BB2FB400873D7A /* ViewCodeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +365,7 @@
 			files = (
 				8631AA06205E835D00117992 /* TestViewController.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				EF0BF54226BB46A100873D7A /* ViewCodeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

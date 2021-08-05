@@ -1,7 +1,7 @@
 import XCTest
 import SelfTableViewManager
 
-class Tests: XCTestCase {
+final class Tests: XCTestCase {
     
     var systemUnderTest: TestViewController!
     
@@ -40,7 +40,7 @@ class Tests: XCTestCase {
     
     func testTableViewManagerItemsCount() {
         let table = systemUnderTest.tableView!
-        let items = [CellController(), CellController()]
+        let items = [CellController(), CellController(), ViewCodeCell()]
         table.setRows(items)
         XCTAssertEqual(table.rows.count, items.count)
     }
@@ -191,6 +191,15 @@ class Tests: XCTestCase {
         XCTAssertEqual(mock.didEndDisplaying, true)
     }
 
+    
+    func testViewCodeCellLoadDefaultCellForTableShouldReturnCorrectView() {
+        let viewCodeCell = ViewCodeCell(bundle: Bundle(for: ViewCodeCellView.self).bundleURL.absoluteString)
+        let tableView = SelfTableViewManager()
+        
+        let view = viewCodeCell.loadDefaultCellForTable(tableView: tableView, atIndexPath: .init(row: 0, section: 0))
+        
+        XCTAssertTrue(view is ViewCodeCellView)
+    }
 }
 
 /// Micks
