@@ -1,3 +1,14 @@
+##  5.1.4
+* Merge pull request #8 from vrjunior/feature/add-support-to-view-code-cell - Julio Fernandes Jr
+* Add changes to pbx file - Valmir Massoni
+* Add macos file system file to gitignore - Valmir Massoni
+* bump version - Valmir Massoni
+* Remove unavailable notation - Valmir Massoni
+* Add implmentation of ViewCodeCell - Valmir Massoni
+* Add test case - Valmir Massoni
+* Add support to view code in SectionController - Valmir Massoni
+* Add support to view code cell - Valmir Massoni
+
 ##  5.1.3
 * Publish pod version: 5.1.3 [ci skip] - Julio Junior
 * Change version number: 5.1.3 - Julio Junior
