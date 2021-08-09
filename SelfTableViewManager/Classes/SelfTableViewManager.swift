@@ -478,7 +478,7 @@ open class CellController: NSObject {
     
     private var bundle: Bundle? {
         guard let bundleURL = bundleURL,
-              let url = URL(string: bundleURL) else { return Bundle.main }
+              let url = URL(string: bundleURL) else { return Bundle(for: type(of: self)) }
         return Bundle(url: url)
     }
 
@@ -612,7 +612,7 @@ open class SectionController: NSObject {
     
     private var bundle: Bundle? {
         guard let bundleURL = bundleURL,
-              let url = URL(string: bundleURL) else { return Bundle.main }
+              let url = URL(string: bundleURL) else { return Bundle(for: type(of: self)) }
         return Bundle(url: url)
     }
     
