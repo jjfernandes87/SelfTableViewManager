@@ -190,7 +190,6 @@ final class Tests: XCTestCase {
         table.tableView(table, didEndDisplaying: UITableViewCell(), forRowAt: IndexPath(row: 0, section: 0))
         XCTAssertEqual(mock.didEndDisplaying, true)
     }
-
     
     func testViewCodeCellLoadDefaultCellForTableShouldReturnCorrectView() {
         let viewCodeCell = ViewCodeCell(bundle: Bundle(for: ViewCodeCellView.self).bundleURL.absoluteString)
