@@ -251,11 +251,8 @@ extension SelfTableViewManager {
         
         allRows.removeObjects(in: discardRows)
         
-        if #available(iOS 11.0, *) {
-            performBatchUpdatesRemoveRows(paths: paths, allRows: allRows, animation: animation)
-        } else {
-            performBeginUpdatesRemoveRows(paths: paths, allRows: allRows, animation: animation)
-        }
+        rows = allRows as [AnyObject]
+        deleteRows(at: paths, with: animation)
     }
 
     /// Insert cells on top
@@ -284,47 +281,7 @@ extension SelfTableViewManager {
             }
         }
         
-        if #available(iOS 11.0, *) {
-            performBatchUpdatesInsertRows(paths: paths, animation: animation)
-        } else {
-            performBeginUpdatesInsertRows(paths: paths, animation: animation)
-        }
-        
-    }
-    
-}
-
-// MARK: - content manipulation
-extension SelfTableViewManager {
-    @available(iOS 11.0, *)
-    internal func performBatchUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableView.RowAnimation) {
-        performBatchUpdates({
-            self.rows.removeAll()
-            self.rows = allRows as [AnyObject]
-            self.deleteRows(at: paths, with: animation)
-        })
-    }
-    
-    internal func performBeginUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableView.RowAnimation) {
-        beginUpdates()
-        self.rows.removeAll()
-        self.rows = allRows as [AnyObject]
-        self.deleteRows(at: paths, with: animation)
-        endUpdates()
-    }
-}
-
-// MARK: - content manipulation for insert cells
-extension SelfTableViewManager {
-    @available(iOS 11.0, *)
-    internal func performBatchUpdatesInsertRows(paths: [IndexPath], animation: UITableView.RowAnimation) {
-        performBatchUpdates({ self.insertRows(at: paths, with: animation) })
-    }
-    
-    internal func performBeginUpdatesInsertRows(paths: [IndexPath], animation: UITableView.RowAnimation) {
-        beginUpdates()
-        self.insertRows(at: paths, with: animation)
-        endUpdates()
+        insertRows(at: paths, with: animation)
     }
 }
 
