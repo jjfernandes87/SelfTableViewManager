@@ -1,3 +1,11 @@
+##  5.1.5
+* Merge pull request #9 from vrjunior/fix-crash-on-remove-cells - Julio Fernandes Jr
+* Improvements - Valmir Massoni
+* Improve fallback of bundle - Valmir Massoni
+* Remove extra line - Valmir Massoni
+* bump version - Valmir Massoni
+* Remove unecessary performBatchUpdates - Valmir Massoni
+
 ##  5.1.4
 * Publish pod version: 5.1.4 [ci skip] - Julio Junior
 * Merge pull request #8 from vrjunior/feature/add-support-to-view-code-cell - Julio Fernandes Jr
