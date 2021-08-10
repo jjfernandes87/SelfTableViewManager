@@ -571,7 +571,7 @@ open class CellController: NSObject {
     }
     
     private func getCellViewIdentifier(with path: String) -> String {
-        if let bundleName = bundle?.infoDictionary?["CFBundleName"] as? String {
+        if let bundleName = bundle.infoDictionary?["CFBundleName"] as? String {
             return String(format: "\(bundleName).%@View", path)
         } else {
             return String(format: "%@View", path)
