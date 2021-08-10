@@ -251,11 +251,8 @@ extension SelfTableViewManager {
         
         allRows.removeObjects(in: discardRows)
         
-        if #available(iOS 11.0, *) {
-            performBatchUpdatesRemoveRows(paths: paths, allRows: allRows, animation: animation)
-        } else {
-            performBeginUpdatesRemoveRows(paths: paths, allRows: allRows, animation: animation)
-        }
+        rows = allRows as [AnyObject]
+        deleteRows(at: paths, with: animation)
     }
 
     /// Insert cells on top
@@ -284,47 +281,7 @@ extension SelfTableViewManager {
             }
         }
         
-        if #available(iOS 11.0, *) {
-            performBatchUpdatesInsertRows(paths: paths, animation: animation)
-        } else {
-            performBeginUpdatesInsertRows(paths: paths, animation: animation)
-        }
-        
-    }
-    
-}
-
-// MARK: - content manipulation
-extension SelfTableViewManager {
-    @available(iOS 11.0, *)
-    internal func performBatchUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableView.RowAnimation) {
-        performBatchUpdates({
-            self.rows.removeAll()
-            self.rows = allRows as [AnyObject]
-            self.deleteRows(at: paths, with: animation)
-        })
-    }
-    
-    internal func performBeginUpdatesRemoveRows(paths: [IndexPath], allRows: NSArray, animation: UITableView.RowAnimation) {
-        beginUpdates()
-        self.rows.removeAll()
-        self.rows = allRows as [AnyObject]
-        self.deleteRows(at: paths, with: animation)
-        endUpdates()
-    }
-}
-
-// MARK: - content manipulation for insert cells
-extension SelfTableViewManager {
-    @available(iOS 11.0, *)
-    internal func performBatchUpdatesInsertRows(paths: [IndexPath], animation: UITableView.RowAnimation) {
-        performBatchUpdates({ self.insertRows(at: paths, with: animation) })
-    }
-    
-    internal func performBeginUpdatesInsertRows(paths: [IndexPath], animation: UITableView.RowAnimation) {
-        beginUpdates()
-        self.insertRows(at: paths, with: animation)
-        endUpdates()
+        insertRows(at: paths, with: animation)
     }
 }
 
@@ -519,10 +476,11 @@ open class CellController: NSObject {
     var tag: Int?
     var bundleURL: String?
     
-    private var bundle: Bundle? {
+    private var bundle: Bundle {
         guard let bundleURL = bundleURL,
-              let url = URL(string: bundleURL) else { return Bundle.main }
-        return Bundle(url: url)
+              let url = URL(string: bundleURL),
+              let bundle = Bundle(url: url) else { return Bundle(for: type(of: self)) }
+        return bundle
     }
 
     deinit {
@@ -560,7 +518,7 @@ open class CellController: NSObject {
         
         if cell == nil {
             let path = reuseIdentifier()
-            let shouldLoadNib = bundle?.path(forResource: path, ofType: "nib") != nil
+            let shouldLoadNib = bundle.path(forResource: path, ofType: "nib") != nil
             if shouldLoadNib {
                 _ = SelfTableViewManagerCache.shared().loadNib(path: path, owner: self, bundleURL: bundleURL)
                 cell = controllerCell;
@@ -653,10 +611,11 @@ open class SectionController: NSObject {
     var tableView: UITableView?
     var bundleURL: String?
     
-    private var bundle: Bundle? {
+    private var bundle: Bundle {
         guard let bundleURL = bundleURL,
-              let url = URL(string: bundleURL) else { return Bundle.main }
-        return Bundle(url: url)
+              let url = URL(string: bundleURL),
+              let bundle = Bundle(url: url) else { return Bundle(for: type(of: self)) }
+        return bundle
     }
     
     deinit {
@@ -688,7 +647,7 @@ open class SectionController: NSObject {
         let sectionName = customSectionName()
         
         let sectionView: SectionView
-        let isNibFileExists = bundle?.path(forResource: sectionName, ofType: "nib") != nil
+        let isNibFileExists = bundle.path(forResource: sectionName, ofType: "nib") != nil
         if isNibFileExists {
             _ = SelfTableViewManagerCache.shared().loadNib(path: sectionName, owner: self, bundleURL: bundleURL)
             sectionView = controllerSection!
