@@ -476,10 +476,11 @@ open class CellController: NSObject {
     var tag: Int?
     var bundleURL: String?
     
-    private var bundle: Bundle? {
+    private var bundle: Bundle {
         guard let bundleURL = bundleURL,
-              let url = URL(string: bundleURL) else { return Bundle(for: type(of: self)) }
-        return Bundle(url: url)
+              let url = URL(string: bundleURL),
+              let bundle = Bundle(url: url) else { return Bundle(for: type(of: self)) }
+        return bundle
     }
 
     deinit {
@@ -517,7 +518,7 @@ open class CellController: NSObject {
         
         if cell == nil {
             let path = reuseIdentifier()
-            let shouldLoadNib = bundle?.path(forResource: path, ofType: "nib") != nil
+            let shouldLoadNib = bundle.path(forResource: path, ofType: "nib") != nil
             if shouldLoadNib {
                 _ = SelfTableViewManagerCache.shared().loadNib(path: path, owner: self, bundleURL: bundleURL)
                 cell = controllerCell;
@@ -610,10 +611,11 @@ open class SectionController: NSObject {
     var tableView: UITableView?
     var bundleURL: String?
     
-    private var bundle: Bundle? {
+    private var bundle: Bundle {
         guard let bundleURL = bundleURL,
-              let url = URL(string: bundleURL) else { return Bundle(for: type(of: self)) }
-        return Bundle(url: url)
+              let url = URL(string: bundleURL),
+              let bundle = Bundle(url: url) else { return Bundle(for: type(of: self)) }
+        return bundle
     }
     
     deinit {
@@ -645,7 +647,7 @@ open class SectionController: NSObject {
         let sectionName = customSectionName()
         
         let sectionView: SectionView
-        let isNibFileExists = bundle?.path(forResource: sectionName, ofType: "nib") != nil
+        let isNibFileExists = bundle.path(forResource: sectionName, ofType: "nib") != nil
         if isNibFileExists {
             _ = SelfTableViewManagerCache.shared().loadNib(path: sectionName, owner: self, bundleURL: bundleURL)
             sectionView = controllerSection!
